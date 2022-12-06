@@ -511,4 +511,7 @@ public class SQL {
 
 		return city;
 	}
+	public static void main(String[] args) {
+		SQL test1 = new SQL();
+	}
 }
