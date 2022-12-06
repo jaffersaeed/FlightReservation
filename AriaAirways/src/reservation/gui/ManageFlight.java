@@ -1,4 +1,5 @@
 package reservation.gui;
+
 import java.util.NoSuchElementException;
 
 import javafx.application.Application;
@@ -14,11 +15,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import flightreservation.flight;
+import reservation.util.Flight;
 public class ManageFlight extends Application {
 
 	Stage window;
-	TableView<flight> table;
+	TableView<Flight> table;
 	TextField flightId, originCity, destinationCity, departureTime, departureDate, capacity, remaining;
 
 	public static void main(String[] args) {
@@ -31,29 +32,29 @@ public class ManageFlight extends Application {
 		window = primaryStage;
 		window.setTitle("Aria's Airline Reservation");
 		// Bus Id column
-		TableColumn<flight, Integer> flightIdColumn = new TableColumn<>("Flight Id");
+		TableColumn<Flight, Integer> flightIdColumn = new TableColumn<>("Flight Id");
 		flightIdColumn.setMinWidth(100);
 		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 
 		// Departure City column
-		TableColumn<flight, String> originCityColumn = new TableColumn<>("Origin City");
+		TableColumn<Flight, String> originCityColumn = new TableColumn<>("Origin City");
 		originCityColumn.setMinWidth(150);
 		originCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
 
 		// Destination City column
-		TableColumn<flight, String> departingCity = new TableColumn<>("Destination City");
+		TableColumn<Flight, String> departingCity = new TableColumn<>("Destination City");
 		departingCity.setMinWidth(150);
 		departingCity.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
 		// Departure Time column
-		TableColumn<flight, String> departureColumn = new TableColumn<>("Departure Time");
+		TableColumn<Flight, String> departureColumn = new TableColumn<>("Departure Time");
 		departureColumn.setMinWidth(150);
 		departureColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
 		// Capacity City column
-		TableColumn<flight, Integer> capcityColumn = new TableColumn<>("Capacity");
+		TableColumn<Flight, Integer> capcityColumn = new TableColumn<>("Capacity");
 		capcityColumn.setMinWidth(150);
 		capcityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
 		// Seats Available Time column
-		TableColumn<flight, String> remainingColumn = new TableColumn<>("Passanger Count");
+		TableColumn<Flight, String> remainingColumn = new TableColumn<>("Passanger Count");
 		remainingColumn.setMinWidth(150);
 		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
 		// Bus input
@@ -105,4 +106,4 @@ public class ManageFlight extends Application {
 	}
 
 }
-}
+

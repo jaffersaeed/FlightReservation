@@ -14,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import reservation.util.Menu;
 
 
 public class Register extends Application {
@@ -103,10 +104,10 @@ public class Register extends Application {
 	// Created a SSN Text Field
 	TextField ssnT = new TextField();
 	GridPane.setConstraints(ssnT, 1, 8);
-	// Created a Userame Label
+	// Created a UserName Label
 	Label userName = new Label("User Name:");
 	GridPane.setConstraints(userName, 0, 9);
-	// Created a Userame Text Field
+	// Created a UserName Text Field
 	TextField userNameT = new TextField();
 	GridPane.setConstraints(userNameT, 1, 9);
 	// Created a password Label
@@ -129,7 +130,6 @@ public class Register extends Application {
 	answer.setPromptText("Type the Answer");
 	GridPane.setConstraints(answer, 3, 11);
 	// Created a login Object
-	Login login = new Login();
 	Button back = new Button("Main Menu");
 	FlightMainMenu main = new FlightMainMenu();
 	GridPane.setConstraints(back, 3, 13);

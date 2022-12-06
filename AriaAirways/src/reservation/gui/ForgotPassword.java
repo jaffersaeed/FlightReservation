@@ -14,7 +14,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class forgotPaa extends Application {
+public class ForgotPassword extends Application {
 
 	Stage window;
 
