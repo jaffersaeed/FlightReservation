@@ -1,11 +1,21 @@
 package reservation.data;
 
+
+import javafx.collections.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.MonthDay;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import javafx.collections.ObservableList;
+import reservation.util.Flight;
+import reservation.util.Booking;
 
 public class SQL {
 	
@@ -23,6 +33,12 @@ public class SQL {
 
 }**/
 	private Connection connection;
+	static ObservableList<Flight> flightSchedule;
+	static ObservableList<Booking> booking;
+	
+	private SQL() {
+		
+	}
 
 	/**public static void main(String[] args) {
 		System.out.println("performing setup...");		
@@ -168,26 +184,6 @@ public class SQL {
 		return data;
 
 	}
-	public static String getCity(int zipCode) throws SQLException {
-
-		SQL c = new SQL();
-
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
-
-		String city = "";
-		String query = "select city from zip where zipCode = ?";
-		PreparedStatement statement = c.connection.prepareStatement(query);
-		statement.setInt(1, zipCode);
-		ResultSet result = statement.executeQuery();
-
-		if (result.next()) {
-			city = result.getString(1);
-		}
-
-		c.connection.close();
-
-		return city;
-	}
 
 	public static void createFlight(int flightNumber, String departureCity, String departureDate,
 			String destinationCity, int capacity, int passengerCount) throws SQLException {
@@ -236,6 +232,36 @@ public class SQL {
 			
 		}
 
+	}
+	public static ObservableList<Flight> getFlight() {
+		
+		try {
+
+			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+
+			String query = "Select * from Flight";
+
+			PreparedStatement statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+			flightSchedule = FXCollections.observableArrayList();
+			while (result.next()) {
+				flightSchedule.addAll(new Flight(result.getInt(1),result.getString(2),result.getString(3),
+					result.getString(4), result.getInt(5),result.getInt(6)));
+				
+			}
+			return flightSchedule;
+		}
+			
+		catch (SQLException s) {
+			System.out.println(s.getMessage());
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return null;
+		
 	}
 	public static String createBooking(int bookingNumber, String dateCreated, String userName,
 			int flightNumber, String departureDate, int ticketNumber) throws SQLException {
@@ -288,6 +314,38 @@ public class SQL {
 		c.connection.close();
 
 		return booking;
+	}
+	
+	public static ObservableList<Booking> getBooking(String username) {
+
+		try {
+
+			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+
+			String query = "Select * from Booking where username=?";
+
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+			booking = FXCollections.observableArrayList();
+			while (result.next()) {
+				booking.addAll(new Booking(result.getInt(1), result.getString(2), result.getString(3),
+						result.getInt(4), result.getString(5), result.getInt(6)));
+
+			}
+			return booking;
+		}
+
+		catch (SQLException s) {
+			System.out.println(s.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return null;
+
 	}
 	
 	public static String[] getBooking(String departureDate, String userName) throws SQLException {
@@ -445,5 +503,25 @@ public class SQL {
 
 		}
 
+	}
+	public static String getCity(int zipCode) throws SQLException {
+
+		SQL c = new SQL();
+
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+
+		String city = "";
+		String query = "select city from zip where zipCode = ?";
+		PreparedStatement statement = c.connection.prepareStatement(query);
+		statement.setInt(1, zipCode);
+		ResultSet result = statement.executeQuery();
+
+		if (result.next()) {
+			city = result.getString(1);
+		}
+
+		c.connection.close();
+
+		return city;
 	}
 }

@@ -2,7 +2,7 @@ package reservation.util;
 
 public abstract class Customer extends User {
 
-	public Customer() {
+		public Customer() {
 		
 	}
 		public Customer( String username, String password, String type, String firstName,
