@@ -1,8 +1,5 @@
 package reservation.util;
 
-import reservation.util.Menu;
-import reservation.util.Booking;
-
 public abstract class User implements Menu {
 	
 	//Data field
