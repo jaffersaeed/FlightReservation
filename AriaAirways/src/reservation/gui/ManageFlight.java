@@ -16,6 +16,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import reservation.util.Flight;
+import reservation.data.SQL; 
+
 public class ManageFlight extends Application {
 
 	Stage window;
@@ -31,7 +33,7 @@ public class ManageFlight extends Application {
 
 		window = primaryStage;
 		window.setTitle("Aria's Airline Reservation");
-		// Bus Id column
+		// Flight Id column
 		TableColumn<Flight, Integer> flightIdColumn = new TableColumn<>("Flight Id");
 		flightIdColumn.setMinWidth(100);
 		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
@@ -57,7 +59,7 @@ public class ManageFlight extends Application {
 		TableColumn<Flight, String> remainingColumn = new TableColumn<>("Passanger Count");
 		remainingColumn.setMinWidth(150);
 		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
-		// Bus input
+		// Flight input
 		flightId = new TextField();
 		flightId.setPromptText("Flight Id");
 		flightId.setMinWidth(150);

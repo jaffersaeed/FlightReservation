@@ -1,6 +1,8 @@
 package reservation.gui;
 
 import javafx.application.Application;
+import reservation.util.Check;
+import reservation.util.Menu;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -22,7 +22,7 @@ public class ViewAvail extends Application {
 
 	Stage window;
 	TableView<Flight> table;
-	TextField busId, originCity, destinationCity, departureTime, departureDate, capacity, remaining;
+	TextField flightId, originCity, destinationCity, departureTime, departureDate, capacity, remaining;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -31,11 +31,11 @@ public class ViewAvail extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		window = primaryStage;
-		window.setTitle("Bus Reservation App");
-		// Bus Id column
-		TableColumn<Flight, Integer> busIdColumn = new TableColumn<>("Bus Id");
-		busIdColumn.setMinWidth(100);
-		busIdColumn.setCellValueFactory(new PropertyValueFactory<>("busNumber"));
+		window.setTitle("Flight Reservation App");
+		// Flight Id column
+		TableColumn<Flight, Integer> flightIdColumn = new TableColumn<>("Flight Id");
+		flightIdColumn.setMinWidth(100);
+		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 
 		// Departure City column
 		TableColumn<Flight, String> originCityColumn = new TableColumn<>("Origin City");
@@ -58,10 +58,10 @@ public class ViewAvail extends Application {
 		TableColumn<Flight, String> remainingColumn = new TableColumn<>("Passanger Count");
 		remainingColumn.setMinWidth(150);
 		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
-		// Bus input
-		busId = new TextField();
-		busId.setPromptText("Bus Id");
-		busId.setMinWidth(150);
+		// Flight input
+		flightId = new TextField();
+		flightId.setPromptText("Flight Id");
+		flightId.setMinWidth(150);
 
 		// Departure City input
 		originCity = new TextField();

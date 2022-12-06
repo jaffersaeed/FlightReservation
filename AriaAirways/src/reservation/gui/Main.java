@@ -12,7 +12,11 @@ import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-
+import reservation.util.Admin;
+import reservation.util.Check;
+import reservation.util.Customer;
+import reservation.util.Menu;
+import reservation.util.User;
 
 public class Main extends Application {
 

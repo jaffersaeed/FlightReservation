@@ -14,6 +14,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import reservation.util.Flight;
 import reservation.util.Booking;
+import reservation.data.SQL;
+import reservation.util.Admin;
+import reservation.util.Check;
+import reservation.util.Customer;
 
 public class BookFlight extends Application {
 
@@ -22,7 +26,7 @@ public class BookFlight extends Application {
 	TableView<Booking> reservation;
 	static int count = 1;
 	Scene scene;
-	int[] busQuery;
+	int[] flightQuery;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -33,9 +37,9 @@ public class BookFlight extends Application {
 
 		window = primaryStage;
 		window.setTitle("Flight Reservation App");
-		TableColumn<Flight, Integer> busIdColumn = new TableColumn<>("Flight Id");
-		busIdColumn.setMinWidth(100);
-		busIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
+		TableColumn<Flight, Integer> flightIdColumn = new TableColumn<>("Flight Id");
+		flightIdColumn.setMinWidth(100);
+		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 
 		// Departure City column
 		TableColumn<Flight, String> originCityColumn = new TableColumn<>("Origin City");
@@ -69,10 +73,10 @@ public class BookFlight extends Application {
 		dateCreated.setMinWidth(150);
 		dateCreated.setCellValueFactory(new PropertyValueFactory<>("dateCreated"));
 
-		// Bus Number column
-		TableColumn<Booking, Integer> busNumber = new TableColumn<>("Flight Number");
-		busNumber.setMinWidth(100);
-		busNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
+		// flight Number column
+		TableColumn<Booking, Integer> flightNumber = new TableColumn<>("Flight Number");
+		flightNumber.setMinWidth(100);
+		flightNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		// Departure Date column
 		TableColumn<Booking, String> departureDate = new TableColumn<>("Departure Date");
 		departureDate.setMinWidth(150);
