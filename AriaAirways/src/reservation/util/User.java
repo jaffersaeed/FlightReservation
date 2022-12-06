@@ -182,7 +182,7 @@ public abstract class User implements Menu {
 	}
 	
 	
-	@Override
+	
 	public void makeNewBooking(int flightNumber, String departureDate, int ticketNumber) {
 		booking = new Booking(this.userName,flightNumber,departureDate,ticketNumber);
 	}

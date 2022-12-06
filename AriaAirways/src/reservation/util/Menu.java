@@ -6,13 +6,13 @@ import reservation.data.SQL;
 
 public interface Menu {
 	
-	public abstract void makeNewReservation(int busNumber,String departureDate,int ticketNumber);
+	public abstract void makeNewReservation(int flightNumber,String departureDate,int ticketNumber);
 	
-	public static User login(String username, String password) {
+	public static User login(String userName, String password) {
 
 		String[] result = null; 
 		try {
-			result = SQL.getUser(username, password); 
+			result = SQL.getUser(userName, password); 
 		}
 		catch (SQLException sql) {
 			System.out.println(sql.getMessage());
@@ -25,11 +25,11 @@ public interface Menu {
 		
 			if (result[2].matches("Admin")) {
 				return new Admin(result[0], result[1], result[2], result[3], result[4], result[5], result[6],
-					result[7], result[8], result[9], result[10], result[11], result[12]);
+					result[7], result[8], result[9], result[10], result[11], result[12],result[13]);
 			}
 			else 
 				return new Customer(result[0], result[1], result[2], result[3], result[4], result[5], result[6],
-					result[7], result[8], result[9], result[10], result[11], result[12]);
+					result[7], result[8], result[9], result[10], result[11], result[12],result[13]);
 		}
 		
 		catch (Exception e) {
@@ -78,10 +78,10 @@ public interface Menu {
 			return "Registration failure";
 		}
 		
-		String username = newUser[0], password = newUser[1],firstName = newUser[2].toUpperCase(), 
+		String userName = newUser[0], password = newUser[1],firstName = newUser[2].toUpperCase(), 
 				lastName = newUser[3].toUpperCase(), address = newUser[4].toUpperCase(), 
-				state = newUser[6].toUpperCase(), email = newUser[8], ssn = newUser[9], 
-				securityQuestion = newUser[10], securityAnswer = newUser[11];
+				state = newUser[6].toUpperCase(), phoneNumber = newUser[8], email = newUser[9], ssn = newUser[10], 
+				securityQuestion = newUser[11], securityAnswer = newUser[12];
 		
 		if (!(email.contains("@") && email.contains(".com"))) {
 			return "Invalid email";
@@ -102,7 +102,7 @@ public interface Menu {
 		String zip = zipCode +"";
 	
 		try {
-			SQL.createUser(username, password,userType,firstName,lastName,address,city,state,zip,
+			SQL.createUser(userName, password,userType,firstName,lastName,address,city,state,zip,phoneNumber,
 					email,ssn,securityQuestion,securityAnswer);
 		}
 		
@@ -116,12 +116,12 @@ public interface Menu {
 	}
 	
 
-	public static String[] forgotPassword(String username) {
+	public static String[] forgotPassword(String userName) {
 		String[] query = null; String[] result = new String[3];
 
-		if (Check.usernameExists(username)) {
+		if (Check.usernameExists(userName)) {
 			try {
-				query = SQL.getUser(username);
+				query = SQL.getUser(userName);
 			}
 			catch (SQLException sql) {
 				result[0] = sql.getMessage();

@@ -19,19 +19,6 @@ import reservation.util.Booking;
 
 public class SQL {
 	
-
-	/**public static Connection getConnect() {
-	    try {
-	        Connection con = DriverManager.getConnection
-	                ("//flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
-	            System.out.println("Connected");
-	        return con;
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        return null;
-	    }
-
-}**/
 	private Connection connection;
 	static ObservableList<Flight> flightSchedule;
 	static ObservableList<Booking> booking;

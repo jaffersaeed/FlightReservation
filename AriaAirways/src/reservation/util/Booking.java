@@ -26,12 +26,12 @@ public class Booking {
 
 	}
 
-	public Booking(String username, String departureDate, int ticketNumber, int flightNumber) {
+	public Booking(String userName, String departureDate, int ticketNumber, int flightNumber) {
 		int lastCount = Check.getbookingCount();
 		bookingCount = ++lastCount;
 		this.flightNumber = bookingCount;
 		this.dateCreated = new Date().toString();
-		this.userName = username;
+		this.userName = userName;
 		this.flightNumber = flightNumber;
 		this.departureDate = departureDate;
 		this.flightNumber = flightNumber;
