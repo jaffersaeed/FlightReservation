@@ -24,7 +24,7 @@ public class SQL {
 }**/
 	private Connection connection;
 
-	public static void main(String[] args) {
+	/**public static void main(String[] args) {
 		System.out.println("performing setup...");		
 		String userName = "asolomon14@student.gsu.edu";
 		String userPassword = "Mountain3717";
@@ -35,14 +35,14 @@ public class SQL {
 				+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;"
 				+ "loginTimeout=30;authentication=ActiveDirectoryPassword";
 		
-	}
+	}**/
 	public static String createUser(String userName, String password, String type, String firstName,
 			String lastName, String address, String city, String state, String zipCode, String phoneNumber,String email,
-			String ssn, String securityQ, String securityA,String cnnString) throws SQLException {
+			String ssn, String securityQ, String securityA) throws SQLException {
 		
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "insert into User values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -68,11 +68,11 @@ public class SQL {
 		return "Account created successfully";
 
 	}
-	public static String[] getUser(String username,String cnnString) throws SQLException {
+	public static String[] getUser(String username) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 		String[] user = new String[14];
 
 		String query = "Select * from User where username=?";
@@ -105,11 +105,11 @@ public class SQL {
 		return user;
 
 	}
-	public static String getUsername(String userName,String cnnString) throws SQLException {
+	public static String getUsername(String userName) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select username from User where username=?";
 
@@ -130,11 +130,11 @@ public class SQL {
 		return data;
 
 	}
-	public static String getCity(int zipCode,String cnnString) throws SQLException {
+	public static String getCity(int zipCode) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String city = "";
 		String query = "select city from zip where zipCode = ?";
@@ -152,11 +152,11 @@ public class SQL {
 	}
 
 	public static void createFlight(int flightNumber, String departureCity, String departureDate,
-			String destinationCity, int capacity, int passengerCount, String cnnString) throws SQLException {
+			String destinationCity, int capacity, int passengerCount) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "insert into Flight values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -174,13 +174,13 @@ public class SQL {
 	}
 	
 	/** method deletes a Flight */
-	public static void deleteFlight(int flightNumber,String cnnString) {
+	public static void deleteFlight(int flightNumber) {
 
 		try {
 			
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "delete from Flight where flightNumber = ?";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -200,11 +200,11 @@ public class SQL {
 
 	}
 	public static String createBooking(int bookingNumber, String dateCreated, String userName,
-			int flightNumber, String departureDate, int ticketNumber,String cnnString) throws SQLException {
+			int flightNumber, String departureDate, int ticketNumber) throws SQLException {
 		
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "insert into Booking values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -223,12 +223,12 @@ public class SQL {
 	}
 	
 	
-	public static String[] getBooking(int bookingNumber,String cnnString) throws SQLException {
+	public static String[] getBooking(int bookingNumber) throws SQLException {
 		SQL c = new SQL();
 
 		String[] booking = new String[6];
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select * from Booking where bookingNumber =?";
 
@@ -251,13 +251,13 @@ public class SQL {
 
 		return booking;
 	}
-	public static void deleteBooking(int bookingNumber,String cnnString) {
+	public static void deleteBooking(int bookingNumber) {
 
 		try {
 
 			SQL c = new SQL();
 
-			c.connection = DriverManager.getConnection(cnnString);
+			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "delete from Booking where bookingNumber = ?";
 			PreparedStatement statement = c.connection.prepareStatement(query);
@@ -276,11 +276,11 @@ public class SQL {
 	}
 
 	
-	public static int getBookingCount(String cnnString) throws SQLException {
+	public static int getBookingCount() throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select * from BookingCount";
 
@@ -301,11 +301,11 @@ public class SQL {
 	}
 	
 
-	public static void setBookingCount(int bookCount,String cnnString) throws SQLException {
+	public static void setBookingCount(int bookCount) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection(cnnString);
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "update BookingCount set resCount=?";
 
@@ -319,13 +319,13 @@ public class SQL {
 
 	}
 	
-	public static int[] getPassengerCount(int flightNumber,String cnnString) {
+	public static int[] getPassengerCount(int flightNumber) {
 
 		SQL c = new SQL();
 
 		try {
 
-			c.connection = DriverManager.getConnection(cnnString);
+			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "Select capacity,passengerCount from Flight where flightNumber=?";
 
@@ -353,13 +353,13 @@ public class SQL {
 		return null;
 
 	}
-	public static void updatePassengerCount(int passengerCount, int flightNumber,String cnnString) {
+	public static void updatePassengerCount(int passengerCount, int flightNumber) {
 
 		try {
 
 			SQL c = new SQL();
 
-			c.connection = DriverManager.getConnection(cnnString);
+			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "update flight set passengerCount=? where flightNumber=?";
 

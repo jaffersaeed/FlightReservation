@@ -2,7 +2,7 @@ package reservation.util;
 
 import java.sql.SQLException;
 
-import reservation.data.Messenger;
+import reservation.data.SQL;
 
 public class Check {
 	
@@ -12,10 +12,10 @@ public class Check {
 	
 	/** method returns true if this user is valid */
 	public static boolean isValidUser(String username, String password) {
-		// Get user information from the database
+		
 		String[] result;// A string array to store user information when retrieved from database
 		try {
-			result = AzureSql.getUser(username, password);
+			result = SQL.getUser(username, password);
 		}
 		catch (SQLException sql) {
 			System.out.println(sql.getMessage());
@@ -30,12 +30,11 @@ public class Check {
 		
 	}
 	
-	/** method returns true if username exists */
+	
 	public static boolean usernameExists(String username) {
-		// Check if username exists in the database
 		String result;
 		try {
-			result = AzureSql.getUsername(username);
+			result = SQL.getUsername(username);
 		} catch (SQLException sql) {
 			System.out.println(sql.getMessage());
 			return false;
@@ -48,12 +47,12 @@ public class Check {
 				
 	}
 	
-	// returns the last reservationCount
+	
 	public static int getbookingCount() {
 		int result = 0;
 		
 		try {
-			result = AzureSql.getReservationCount();
+			result = SQL.getReservationCount();
 		}
 		catch (SQLException s) {
 			
@@ -65,11 +64,11 @@ public class Check {
 		return result;
 	}
 	
-	// returns the last reservationCount
+	
 	public static void setbookingCount(int resCount) {
 
 		try {
-			AzureSql.setReservationCount(resCount);
+			SQL.setReservationCount(resCount);
 		} catch (SQLException s) {
 
 		} catch (Exception e) {
@@ -79,11 +78,10 @@ public class Check {
 		System.out.println("Success!");
 	}
 	
-	// returns true if reservation exists
 	public static boolean bookingExists(String departureDate, String username) {
-		String[] result = null; // A string array to store user information when retrieved from database
+		String[] result = null; 
 		try {
-			result = AzureSql.getReservation(departureDate, username);
+			result = SQL.getReservation(departureDate, username);
 		}
 		
 		catch (SQLException sql) {
