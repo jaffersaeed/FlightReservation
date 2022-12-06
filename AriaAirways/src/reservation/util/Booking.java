@@ -9,9 +9,11 @@ public class Booking {
 
 	private int bookingNumber; 
 	private String dateCreated; 
-	private String username;
+	private String userName;
 	private int flightNumber; 
 	private String departureDate; 
+	private int ticketNumber;
+	
 	private static int bookingCount;
 	public String result;
 	
@@ -29,7 +31,7 @@ public class Booking {
 		bookingCount = ++lastCount;
 		this.flightNumber = bookingCount;
 		this.dateCreated = new Date().toString();
-		this.username = username;
+		this.userName = username;
 		this.flightNumber = flightNumber;
 		this.departureDate = departureDate;
 		this.flightNumber = flightNumber;
@@ -37,21 +39,21 @@ public class Booking {
 		Check.setbookingCount(bookingCount);
 	}
 	
-	public Booking( String dateCreated, String username, int busNumber, String
-			departureDate, int ticketNumber, int flightNumber) {
-		this.flightNumber = flightNumber;
-		this.dateCreated = dateCreated;
-		this.username = username;
-		this.flightNumber = busNumber;
-		this.departureDate = departureDate;
-		this.flightNumber = ticketNumber;
+	public Booking(int bookingNumber, String dateCreated, String userName, int flightNumber, String
+				departureDate, int ticketNumber) {
+			this.bookingNumber = bookingNumber;
+			this.dateCreated = dateCreated;
+			this.userName = userName;
+			this.flightNumber = flightNumber;
+			this.departureDate = departureDate;
+			this.ticketNumber = ticketNumber;
 	}
 	
 
 	public String createBooking() {
 		String output = "";// a string to save the result of this update
 		try {// call database and save response in output
-			output = SQL.createBooking(this.flightNumber, this.dateCreated, this.username,
+			output = SQL.createBooking(this.flightNumber, this.dateCreated, this.userName,
 					this.flightNumber, this.departureDate, this.flightNumber);
 		} catch (SQLException sql) {
 			output = sql.getMessage();// save any error message in output
@@ -71,7 +73,7 @@ public class Booking {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public int getFlightNumber() {
@@ -96,7 +98,7 @@ public class Booking {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public void setFlightNumber(int flightNumber) {

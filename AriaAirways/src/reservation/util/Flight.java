@@ -6,7 +6,9 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public class flight {
+import reservation.data.SQL;
+
+public class Flight {
 	
 	private int flightNumber;
 	private String departureCity;
@@ -16,13 +18,13 @@ public class flight {
 	private int passengerCount;
 	
 
-	// no argument constructor
-	public void Flight() {
+	
+	public Flight() {
 		
 	}
 	
-	// Constructor
-	public flight(int flightNumber, String departureCity, String departureDate,
+
+	public Flight(int flightNumber, String departureCity, String departureDate,
 			String destinationCity, int capacity,int passengerCount) {
 		super();
 		this.flightNumber = flightNumber;
@@ -35,9 +37,8 @@ public class flight {
 	
 
 	public String createFlight() {
-		try {
-		//	Messenger(this.flightNumber, this.departureCity, this.departureDate,
-					this.destinationCity, this.capacity, passengerCount);
+		try {SQL.createFlight(this.flightNumber, this.departureCity, this.departureDate,
+				this.destinationCity, this.capacity, this.passengerCount);
 		}
 		catch (SQLException sql) {
 			return sql.getMessage() + "Flight not registered";
@@ -49,22 +50,20 @@ public class flight {
 		return "Flight successfully registered";
 	}
 
-	//getter
+
 	public int getFlightNumber() {
 		return flightNumber;
 	}
 
-	//setter
+
 	public void setFlightNumber(int flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 
-	//getter
 	public String getDepartureCity() {
 		return departureCity;
 	}
 
-	//setter
 	public void setDepartureCity(String departureCity) {
 		this.departureCity = departureCity;
 	}

@@ -10,10 +10,10 @@ public class Check {
 		
 	}
 	
-	/** method returns true if this user is valid */
+	
 	public static boolean isValidUser(String username, String password) {
 		
-		String[] result;// A string array to store user information when retrieved from database
+		String[] result;
 		try {
 			result = SQL.getUser(username, password);
 		}
@@ -52,7 +52,7 @@ public class Check {
 		int result = 0;
 		
 		try {
-			result = SQL.getReservationCount();
+			result = SQL.getBookingCount();
 		}
 		catch (SQLException s) {
 			
@@ -68,7 +68,7 @@ public class Check {
 	public static void setbookingCount(int resCount) {
 
 		try {
-			SQL.setReservationCount(resCount);
+			SQL.setBookingCount(resCount);
 		} catch (SQLException s) {
 
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class Check {
 	public static boolean bookingExists(String departureDate, String username) {
 		String[] result = null; 
 		try {
-			result = SQL.getReservation(departureDate, username);
+			result = SQL.getBooking(departureDate, username);
 		}
 		
 		catch (SQLException sql) {

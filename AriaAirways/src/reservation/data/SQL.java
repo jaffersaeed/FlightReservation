@@ -105,6 +105,44 @@ public class SQL {
 		return user;
 
 	}
+	public static String[] getUser(String username, String password) throws SQLException {
+
+		SQL c = new SQL();
+
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		String[] user = new String[14];
+
+		String query = "Select * from User where username=? and password=?";
+
+		PreparedStatement statement = c.connection.prepareStatement(query);
+
+		statement.setString(1, username);
+		statement.setString(2, password);
+
+		ResultSet result = statement.executeQuery();
+
+		if (result.next()) {
+			user[0] = result.getString(1);
+			user[1] = result.getString(2);
+			user[2] = result.getString(3);
+			user[3] = result.getString(4);
+			user[4] = result.getString(5);
+			user[5] = result.getString(6);
+			user[6] = result.getString(7);
+			user[7] = result.getString(8);
+			user[8] = result.getString(9);
+			user[9] = result.getString(10);
+			user[10] = result.getString(11);
+			user[11] = result.getString(12);
+			user[12] = result.getString(13);
+			user[13] = result.getString(14);
+		}
+
+		c.connection.close();
+
+		return user;
+
+	}
 	public static String getUsername(String userName) throws SQLException {
 
 		SQL c = new SQL();
@@ -250,6 +288,36 @@ public class SQL {
 		c.connection.close();
 
 		return booking;
+	}
+	
+	public static String[] getBooking(String departureDate, String userName) throws SQLException {
+		SQL c = new SQL();
+
+		String[] reservation = new String[6];
+
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+
+		String query = "Select * from Reservation where departureDate =? and username=?";
+
+		PreparedStatement statement = c.connection.prepareStatement(query);
+
+		statement.setString(1, departureDate);
+		statement.setString(2, userName);
+
+		ResultSet result = statement.executeQuery();
+
+		if (result.next()) {
+			reservation[0] = "" + result.getInt(1);
+			reservation[1] = result.getString(2);
+			reservation[2] = result.getString(3);
+			reservation[3] = "" + result.getInt(4);
+			reservation[4] = result.getString(5);
+			reservation[5] = "" + result.getInt(6);
+		}
+
+		c.connection.close();
+
+		return reservation;
 	}
 	public static void deleteBooking(int bookingNumber) {
 

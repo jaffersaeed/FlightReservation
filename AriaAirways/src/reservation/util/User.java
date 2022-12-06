@@ -1,7 +1,7 @@
 package reservation.util;
 
-import flightreservation.Menu;
-import flightreservation.Reservation;
+import reservation.util.Menu;
+import reservation.util.Booking;
 
 public abstract class User implements Menu {
 	
@@ -186,3 +186,4 @@ public abstract class User implements Menu {
 	public void makeNewBooking(int flightNumber, String departureDate, int ticketNumber) {
 		booking = new Booking(this.userName,flightNumber,departureDate,ticketNumber);
 	}
+}
