@@ -7,7 +7,6 @@ public class Password {
 	private String securityQuestion;
 	private String answer;
 
-	//Constructors
 	public Password() {
 	}
 	
@@ -22,27 +21,22 @@ public class Password {
 	}
 
 	
-	//Method returns the security question for this password
 	public String getSecurityQuestion() {
 		return securityQuestion;
 	}
 	
-	//Method sets the security question for this password
 	public void setSecurityQuestion(String question) {
 		this.securityQuestion = question;
 	}
 
-	//returns answer to this password's security question
 	public String getAnswer() {
 		return answer;
 	}
 
-	//sets answer to this password's security question
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 	
-	//displays this password's security question
 	public void printSecurityQuestion() {
 		System.out.println(securityQuestion);
 	}
