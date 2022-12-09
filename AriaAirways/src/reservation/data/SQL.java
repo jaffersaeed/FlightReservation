@@ -45,9 +45,9 @@ public class SQL {
 		
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
-		String query = "insert into User values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query = "insert into User values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
 		statement.setString(1, userName);
 		statement.setString(2, password);
@@ -75,7 +75,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 		String[] user = new String[14];
 
 		String query = "Select * from User where username=?";
@@ -112,7 +112,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 		String[] user = new String[14];
 
 		String query = "Select * from User where username=? and password=?";
@@ -150,7 +150,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select username from User where username=?";
 
@@ -177,7 +177,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "insert into Flight values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -201,7 +201,7 @@ public class SQL {
 			
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "delete from Flight where flightNumber = ?";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -224,7 +224,7 @@ public class SQL {
 		
 		try {
 
-			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "Select * from Flight";
 
@@ -255,7 +255,7 @@ public class SQL {
 		
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "insert into Booking values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
@@ -279,7 +279,7 @@ public class SQL {
 
 		String[] booking = new String[6];
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select * from Booking where bookingNumber =?";
 
@@ -307,7 +307,7 @@ public class SQL {
 
 		try {
 
-			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			Connection connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "Select * from Booking where username=?";
 
@@ -340,7 +340,7 @@ public class SQL {
 
 		String[] reservation = new String[6];
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select * from Reservation where departureDate =? and username=?";
 
@@ -370,7 +370,7 @@ public class SQL {
 
 			SQL c = new SQL();
 
-			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 			String query = "delete from Booking where bookingNumber = ?";
 			PreparedStatement statement = c.connection.prepareStatement(query);
@@ -393,7 +393,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
 		String query = "Select * from BookingCount";
 
@@ -510,8 +510,5 @@ public class SQL {
 		c.connection.close();
 
 		return city;
-	}
-	public static void main(String[] args) {
-		SQL test1 = new SQL();
 	}
 }

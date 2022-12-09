@@ -1,6 +1,6 @@
 package reservation.util;
 
-public abstract class Customer extends User {
+public class Customer extends User {
 
 		public Customer() {
 		
