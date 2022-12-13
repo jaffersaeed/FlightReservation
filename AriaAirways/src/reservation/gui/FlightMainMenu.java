@@ -11,23 +11,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-<<<<<<< HEAD
-<<<<<<< HEAD
-import javafx.application.Application;
-import javafx.stage.Stage;
-=======
->>>>>>> branch 'master' of https://github.com/jaffersaeed/CIS-Project.git
-=======
->>>>>>> branch 'master' of https://github.com/jaffersaeed/CIS-Project.git
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 
 
 public class FlightMainMenu extends Application {

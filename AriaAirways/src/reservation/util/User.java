@@ -1,9 +1,12 @@
 package reservation.util;
 
+<<<<<<< HEAD
 import reservation.util.Menu;
 import reservation.util.Booking;
 import javafx.util.*;
 
+=======
+>>>>>>> branch 'master' of https://github.com/jaffersaeed/FlightReservation.git
 public abstract class User implements Menu {
 	
 	//Data field

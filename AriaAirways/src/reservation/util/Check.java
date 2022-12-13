@@ -1,7 +1,6 @@
 package reservation.util;
 
 import java.sql.SQLException;
-
 import reservation.data.SQL;
 
 public class Check {
@@ -18,7 +17,7 @@ public class Check {
 			result = SQL.getUser(username, password);
 		}
 		catch (SQLException sql) {
-			System.out.println(sql.getMessage());
+			System.out.println(sql.getSQLState());
 			return false;
 		}
 		
@@ -36,7 +35,7 @@ public class Check {
 		try {
 			result = SQL.getUsername(username);
 		} catch (SQLException sql) {
-			System.out.println(sql.getMessage());
+			System.out.println(sql.getSQLState());
 			return false;
 		}
 
