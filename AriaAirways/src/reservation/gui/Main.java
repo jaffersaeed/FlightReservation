@@ -37,7 +37,7 @@ public class Main extends Application {
 		grid.setHgap(10);
 		grid.setAlignment(Pos.CENTER);
 		
-		Label welcome1 = new Label("Welcome to Aria's Airplane Reservation");
+		Label welcome1 = new Label("Welcome to Aria's Airways");
 		GridPane.setConstraints(welcome1, 0, 0);
 		welcome1.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 		
