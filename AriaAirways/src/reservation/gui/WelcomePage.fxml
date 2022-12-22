@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="(default package).Controller">
+	<children>
+		<Button fx:id="Login" layoutX="276.0" layoutY="208.0" mnemonicParsing="false" onAction="#userlogin" text="Login" />
+		<Button fx:id="register" layoutX="269.0" layoutY="291.0" mnemonicParsing="false" onAction="#bttnclicked_register" text="Register" />
+		<Text layoutX="182.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aria's Airplane Reservation">
+			<font>
+				<Font name="Arial Bold" size="18.0" />
+			</font>
+		</Text>
+		<Line endX="100.0" layoutX="299.0" layoutY="261.0" startX="-100.0" />
+      <ImageView fitHeight="112.0" fitWidth="92.0" layoutX="254.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/Fashion%20&amp;%20Boutique-2.png" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>
