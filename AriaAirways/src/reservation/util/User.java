@@ -1,5 +1,12 @@
 package reservation.util;
 
+<<<<<<< HEAD
+import reservation.util.Menu;
+import reservation.util.Booking;
+import javafx.util.*;
+
+=======
+>>>>>>> branch 'master' of https://github.com/jaffersaeed/FlightReservation.git
 public abstract class User implements Menu {
 	
 	//This is the data field
@@ -179,8 +186,4 @@ public abstract class User implements Menu {
 	}
 	
 	
-	
-	public void makeNewBooking(int flightNumber, String departureDate, int ticketNumber) {
-		booking = new Booking(this.userName,flightNumber,departureDate,ticketNumber);
-	}
 }

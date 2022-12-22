@@ -6,7 +6,6 @@ import reservation.data.SQL;
 
 public interface Menu {
 	
-	public abstract void makeNewReservation(int flightNumber,String departureDate,int ticketNumber);
 	
 	public static User login(String userName, String password) {
 

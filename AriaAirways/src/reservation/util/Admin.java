@@ -1,8 +1,12 @@
 package reservation.util;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'master' of https://github.com/jaffersaeed/FlightReservation.git
 public class Admin extends User {
 
-	public Admin( String userName, String password, String type, String firstName,
+		public Admin( String userName, String password, String type, String firstName,
 			String lastName, String address, String city, String state, String zipCode, String email,
 			String phoneNumber, String ssn, String securityQ, String securityA) {
 		
