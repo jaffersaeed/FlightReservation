@@ -37,6 +37,6 @@ public class AdminLoginController {
     
     public void adminLogin(ActionEvent event) throws IOException {
     	 Main m = new Main();
-	        m.changeScene("MainMenu.fxml");
+	        m.changeScene("AdminMainMenu.fxml");
     }
 }
