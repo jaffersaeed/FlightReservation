@@ -24,6 +24,9 @@ public class ForgotPass2Controller {
 	private Button back;
 	@FXML
 	private Button submit;
+	Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign2.jpg"));
 	
 	 public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();

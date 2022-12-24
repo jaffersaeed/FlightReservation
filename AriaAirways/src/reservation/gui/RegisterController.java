@@ -42,6 +42,9 @@ public class RegisterController implements Initializable {
     private Button back;
     @FXML
     private Button registerNext;
+    Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign3.jpg"));
    
     
     public void goBack(ActionEvent event) throws IOException {

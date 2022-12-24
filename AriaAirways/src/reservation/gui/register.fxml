@@ -15,19 +15,9 @@
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="568.0">
          <children>
-            <ImageView fitHeight="339.0" fitWidth="488.0" layoutY="376.0">
+            <ImageView fx:id="myImage" fitHeight="355.0" fitWidth="626.0" layoutX="-19.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../var/folders/ng/hzg8qys56slg3sdtfg2zx1xc0000gp/T/TemporaryItems/NSIRD_screencaptureui_t6uMKu/Screen%20Shot%202022-12-02%20at%208.29.11%20PM.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="322.0" fitWidth="491.0" layoutX="182.0" layoutY="-172.0">
-               <image>
-                  <Image url="@../../../../../../var/folders/ng/hzg8qys56slg3sdtfg2zx1xc0000gp/T/TemporaryItems/NSIRD_screencaptureui_DEcQEP/Screen%20Shot%202022-12-02%20at%208.28.00%20PM.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="339.0" fitWidth="488.0" layoutX="109.0" layoutY="56.0">
-               <image>
-                  <Image url="@../../../../../../var/folders/ng/hzg8qys56slg3sdtfg2zx1xc0000gp/T/TemporaryItems/NSIRD_screencaptureui_t6uMKu/Screen%20Shot%202022-12-02%20at%208.29.11%20PM.png" />
+                  <Image url="@GUIdesign3.jpg" />
                </image>
             </ImageView>
             <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />

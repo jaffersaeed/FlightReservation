@@ -22,6 +22,9 @@ public class ForgotPassController {
     private TextField UsernameForgotpass;
     @FXML
     private Label Error;
+    Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign2.jpg"));
     
     public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();

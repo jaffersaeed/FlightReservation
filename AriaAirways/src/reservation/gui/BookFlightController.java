@@ -31,6 +31,9 @@ public class BookFlightController implements Initializable {
     private CheckBox roundTrip;
     @FXML
     private DatePicker travelDate;
+    Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
     
      public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();
