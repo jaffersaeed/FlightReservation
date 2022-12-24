@@ -7,11 +7,11 @@ import reservation.data.SQL;
 public interface Menu {
 	
 	
-	public static User login(String userName, String password) {
+	public static User login(String username, String password) {
 
 		String[] result = null; 
 		try {
-			result = SQL.getUser(userName, password); 
+			result = SQL.getUser(username, password); 
 		}
 		catch (SQLException sql) {
 			System.out.println(sql.getMessage());

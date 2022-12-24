@@ -1,15 +1,14 @@
 package reservation.util;
 
-<<<<<<< HEAD
+
 import reservation.util.Menu;
 import reservation.util.Booking;
 import javafx.util.*;
 
-=======
->>>>>>> branch 'master' of https://github.com/jaffersaeed/FlightReservation.git
+
 public abstract class User implements Menu {
 	
-	//Data field
+	//This is the data field
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -20,7 +19,7 @@ public abstract class User implements Menu {
 	private String phoneNumber;
 	private String ssn;
 	private String userName;
-	private String password; //Should be revised to a Password object after testing
+	private String password; 
 	private String securityQ;
 	private String securityA;
 	private String type;
