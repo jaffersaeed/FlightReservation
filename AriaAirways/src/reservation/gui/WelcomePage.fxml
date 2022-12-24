@@ -8,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="(default package).Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WelcomePageController">
 	<children>
 		<Button fx:id="Login" layoutX="276.0" layoutY="208.0" mnemonicParsing="false" onAction="#userlogin" text="Login" />
-		<Button fx:id="register" layoutX="269.0" layoutY="291.0" mnemonicParsing="false" onAction="#bttnclicked_register" text="Register" />
+		<Button fx:id="register" layoutX="269.0" layoutY="291.0" mnemonicParsing="false" onAction="#userregister" text="Register" />
 		<Text layoutX="182.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aria's Airplane Reservation">
 			<font>
 				<Font name="Arial Bold" size="18.0" />
