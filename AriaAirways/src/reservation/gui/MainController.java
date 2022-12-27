@@ -1,4 +1,4 @@
-package gui;
+package reservation.gui;
 
 import java.io.IOException;
 
