@@ -42,11 +42,7 @@ public class SQL {
 
 		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
-<<<<<<< HEAD
-		String query = "insert into User values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-=======
-		String query = "INSERT INTO User values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
->>>>>>> branch 'master' of https://github.com/jaffersaeed/FlightReservation.git
+
 		PreparedStatement statement = c.connection.prepareStatement(query);
 		statement.setString(1, userName);
 		statement.setString(2, password);
