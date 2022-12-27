@@ -1,19 +1,19 @@
 package reservation.gui;
-	
-	import javafx.event.ActionEvent;
-	import javafx.fxml.FXML;
-	import javafx.scene.control.Button;
 
-	import java.io.IOException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
-	public class WelcomePageController {
+import java.io.IOException;
 
-	    @FXML
-	    private Button Login;
-	   @FXML
-	    private Button register;
+public class WelcomePageController {
 
-	    public void userlogin(ActionEvent event) throws IOException {
+    @FXML
+    private Button Login;
+   @FXML
+private Button Register;
+
+ public void userlogin(ActionEvent event) throws IOException {
 	        Main m = new Main();
 	        m.changeScene("loginCustomer.fxml");
 	    }
@@ -23,4 +23,3 @@ package reservation.gui;
 		    m.changeScene("register.fxml");
 	    }
 	}
-
