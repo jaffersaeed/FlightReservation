@@ -31,7 +31,7 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField zipcode;
     @FXML
-    private TextField state;
+    private ComboBox state; // change this to a choice box - code below
     @FXML
     private TextField city;
     @FXML
@@ -61,11 +61,28 @@ public class RegisterController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
          ObservableList<String> list = FXCollections.observableArrayList("What is your favorite pet's name?","Where is your mom from?","Where were you born?","What is the name of your 2nd grade teacher?");
          comb.setItems(list);
+         ObservableList<String> list1 = FXCollections.observableArrayList("Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "California", "Colorado",
+			"Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+			"Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+			"Michigan", "Minnesota", "Minor Outlying Islands", "Mississippi", "Missouri", "Montana", "Nebraska",
+			"Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+			"Northern Mariana Islands", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island",
+			"South Carolina", "South Dakota", "Tennessee", "Texas", "U.S. Virgin Islands", "Utah", "Vermont",
+			"Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"");
+         state.setItems(list);
     }    
      
     public void next(ActionEvent event) throws IOException {
-    	 Main m = new Main();
-	        m.changeScene("MainMenu.fxml");
+    	 String result;
+		String[] newUser = {username.getText(),password.getText(),firstname.getText(),lastname.getText(),
+				address.getText(),city.getText(),
+				state.getSelectionModel().getSelectedItem(),zipT.getText(),
+				email.getText(), comb.getSelectionModel().getSelectedItem(),
+				secruityanswer.getText()};
+		
+    			Main m = new Main();
+    			m.changeScene("loginCustomer.fxml");
     }
 
 }
+

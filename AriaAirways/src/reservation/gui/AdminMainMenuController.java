@@ -29,9 +29,9 @@ public class AdminMainMenuController {
     	 Main m = new Main();
 	        m.changeScene("AvailableFlights.fxml");
     }
-    public void bookFlight(ActionEvent event) throws IOException {
+    public void manageFlight(ActionEvent event) throws IOException {
     	 Main m = new Main();
-	        m.changeScene("WelcomePage.fxml");
+	        m.changeScene("ManageFlight.fxml");
     }
    
 

@@ -36,6 +36,10 @@ public class LoginCustomerController{
     private Label error;
     
     static User user;
+    
+    Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign1.jpg"));
 
 
     public void goBack(ActionEvent event) throws IOException {
