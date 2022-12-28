@@ -10,7 +10,7 @@ public class AvailableFlightsController implements Initializable {
 	private TableColumn<Flight, Integer> originCityColumn;
 	@FXML
 	private TableColumn<Flight, Integer> departingCity;
-		@FXML
+	@FXML
 	private TableColumn<Flight, Integer> departingColumn; // depart time
 	@FXML
 	private TableColumn<Flight, Integer> capacityColumn;
