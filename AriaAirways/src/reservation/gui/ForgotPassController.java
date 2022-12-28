@@ -1,4 +1,4 @@
-package application;
+package  reservation.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import reservation.util.Check;
+import reservation.data.SQL;
 
 import java.io.IOException;
 
@@ -22,7 +26,7 @@ public class ForgotPassController {
     private TextField UsernameForgotpass;
     @FXML
     private Label Error;
-    Imageview myImageView;
+    ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign2.jpg"));
     

@@ -1,4 +1,19 @@
-package application;
+package  reservation.gui;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import reservation.data.SQL;
+import reservation.util.Flight;
 
 public class MyFlightsController implements Initializable {
 	@FXML
@@ -29,8 +44,8 @@ public class MyFlightsController implements Initializable {
 		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		originCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
 		departingCity.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
-		departureColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-		capcityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+		departingColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+		capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
 		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
 }
 		public ObservableList<Flight> getBooking(){

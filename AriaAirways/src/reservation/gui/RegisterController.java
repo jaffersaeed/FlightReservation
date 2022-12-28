@@ -1,4 +1,4 @@
-package application;
+package  reservation.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,10 +41,12 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField securityAnswer;
     @FXML
+    private TextField email;
+    @FXML
     private Button back;
     @FXML
     private Button registerNext;
-    Imageview myImageView;
+    ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign3.jpg"));
    
@@ -68,17 +72,17 @@ public class RegisterController implements Initializable {
 			"Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
 			"Northern Mariana Islands", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island",
 			"South Carolina", "South Dakota", "Tennessee", "Texas", "U.S. Virgin Islands", "Utah", "Vermont",
-			"Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"");
+			"Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming");
          state.setItems(list);
     }    
      
     public void next(ActionEvent event) throws IOException {
     	 String result;
-		String[] newUser = {username.getText(),password.getText(),firstname.getText(),lastname.getText(),
+		String[] newUser = {username.getText(),password.getText(),firstName.getText(),lastName.getText(),
 				address.getText(),city.getText(),
-				state.getSelectionModel().getSelectedItem(),zipT.getText(),
-				email.getText(), comb.getSelectionModel().getSelectedItem(),
-				secruityanswer.getText()};
+				(String) state.getSelectionModel().getSelectedItem(),zipcode.getText(),
+				email.getText(), (String) comb.getSelectionModel().getSelectedItem(),
+				securityAnswer.getText()};
 		
     			Main m = new Main();
     			m.changeScene("loginCustomer.fxml");

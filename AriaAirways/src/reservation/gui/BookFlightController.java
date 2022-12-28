@@ -1,4 +1,4 @@
-package application;
+package  reservation.gui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +33,7 @@ public class BookFlightController implements Initializable {
     private CheckBox roundTrip;
     @FXML
     private DatePicker travelDate;
-    Imageview myImageView;
+    ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
     
