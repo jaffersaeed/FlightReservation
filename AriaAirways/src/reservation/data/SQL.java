@@ -152,7 +152,7 @@ public class SQL {
 		SQL c = new SQL();
 
 		///c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryIntegrated");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=CloudSAd2cc1c94@flightres;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		String[] user = new String[14];
 
 		String query = "SELECT * FROM dbo.[User] WHERE username=? and password=?";
