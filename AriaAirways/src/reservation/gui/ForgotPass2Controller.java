@@ -1,4 +1,4 @@
-package application;
+package reservation.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;

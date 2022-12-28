@@ -1,4 +1,4 @@
-package application;
+package reservation.gui;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;

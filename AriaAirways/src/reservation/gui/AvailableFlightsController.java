@@ -1,4 +1,4 @@
-package application;
+package reservation.gui;
 
 public class AvailableFlightsController implements Initializable {
 
