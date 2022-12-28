@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.gui.AdminMainMenuController">
+   <children>
+      <ImageView fx:id="myImage1" fitHeight="356.0" fitWidth="600.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GUIdesign4.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="logout" layoutX="514.0" layoutY="25.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Label layoutX="191.0" layoutY="144.0" text="Aria's Airline Reservation">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="bookflights" layoutX="258.0" layoutY="200.0" mnemonicParsing="false" onAction="#bookFlight" text="Book Flights" />
+      <Button fx:id="flights" layoutX="239.0" layoutY="246.0" mnemonicParsing="false" onAction="#availableFlights" text="All Available Flights" />
+      <ImageView fx:id="myImage" fitHeight="83.0" fitWidth="131.0" layoutX="236.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GUI_LOGO.jpg" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
-

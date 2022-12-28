@@ -1,4 +1,4 @@
-package reservation.gui;
+package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +11,10 @@ public class WelcomePageController {
     @FXML
     private Button Login;
    @FXML
-private Button Register;
+   private Button Register;
+    Imageview myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUI_LOGO.jpg"));
 
  public void userlogin(ActionEvent event) throws IOException {
 	        Main m = new Main();
