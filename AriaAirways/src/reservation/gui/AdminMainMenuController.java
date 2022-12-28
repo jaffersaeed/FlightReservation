@@ -1,4 +1,4 @@
-package reservation.gui;
+package  reservation.gui;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -15,7 +15,8 @@ public class AdminMainMenuController {
     private Button bookflights;
     @FXML
     private Button manage;
-    ImageView myImageView;
+    @FXML
+    private ImageView myImageView;
    
     Image myImage = new Image(getClass().getResourceAsStream("GUI_LOGO.jpg"));
    

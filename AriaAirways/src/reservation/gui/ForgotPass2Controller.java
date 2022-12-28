@@ -1,4 +1,4 @@
-package reservation.gui;
+package  reservation.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +26,7 @@ public class ForgotPass2Controller {
 	private Button back;
 	@FXML
 	private Button submit;
-	Imageview myImageView;
+	private ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign2.jpg"));
 	

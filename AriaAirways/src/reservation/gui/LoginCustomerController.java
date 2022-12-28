@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import reservation.util.Admin;
 import reservation.util.Check;
@@ -37,7 +39,7 @@ public class LoginCustomerController{
     
     static User user;
     
-    Imageview myImageView;
+    ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign1.jpg"));
 
@@ -58,12 +60,12 @@ public class LoginCustomerController{
 					if (Check.isValidUser(username.getText(),password.getText()) 
 							&& (user instanceof Admin)) {
 						Main m = new Main();
-	        m.changeScene("WelcomePage.fxml");
+	        m.changeScene("AdminMainMenu.fxml");
 					}
 					else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
 					Main m = new Main();
-					m.changeScene("WelcomePage.fxml");
+					m.changeScene("MainMenu.fxml");
 			}else {
 				error.setText("Wrong Username or Password, please try again!");
 			}

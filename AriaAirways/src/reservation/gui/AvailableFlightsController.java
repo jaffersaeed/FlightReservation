@@ -1,4 +1,26 @@
-package reservation.gui;
+package  reservation.gui;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.NoSuchElementException;
+import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import reservation.data.SQL;
+import reservation.util.Booking;
+import reservation.util.Check;
+import reservation.util.Flight;
 
 public class AvailableFlightsController implements Initializable {
 
@@ -27,11 +49,11 @@ public class AvailableFlightsController implements Initializable {
 	@FXML
 	private TableColumn<Booking, Integer> ticketNumber;
 	@FXML
-	private Button button add;
+	private Button add;
 	@FXML
-	private Button button delete;
+	private Button delete;
 	@FXML
-	private Button button back;
+	private Button back;
 	@FXML
     private Label error;
 	
@@ -110,8 +132,8 @@ public class AvailableFlightsController implements Initializable {
 		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		originCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
 		departingCity.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
-		departureColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-		capcityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+		departingColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+		capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
 		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
 		bookingNumber.setCellValueFactory(new PropertyValueFactory<>("reservationNumber"));
 		dateCreated.setCellValueFactory(new PropertyValueFactory<>("dateCreated"));
@@ -127,3 +149,4 @@ public class AvailableFlightsController implements Initializable {
 	}
 }
 }
+

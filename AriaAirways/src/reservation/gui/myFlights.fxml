@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.gui.BookFlightController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.myFlightsController">
    <children>
       <ImageView fitHeight="409.0" fitWidth="679.0" layoutX="-59.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,10 +24,12 @@
       </Text>
       <TableView fx:id="myTable" layoutX="39.0" layoutY="124.0" prefHeight="200.0" prefWidth="535.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Flight ID" />
-          <TableColumn prefWidth="75.0" text="Flight Number" />
-            <TableColumn prefWidth="75.0" text="Origin" />
-            <TableColumn prefWidth="75.0" text="Destination" />
+          <TableColumn fx:id="flightIdColumn" prefWidth="75.0" text="Flight ID" />
+            <TableColumn fx:id="originCityColumn" prefWidth="62.0" text="Origin" />
+            <TableColumn fx:id="departingCity" prefWidth="100.0" text="Destination" />
+            <TableColumn fx:id="departingColumn" prefWidth="82.0" text="Time" />
+            <TableColumn fx:id="capacityColumn" prefWidth="105.0" text="Capacity" />
+            <TableColumn fx:id="remainingColumn" prefWidth="110.0" text="Remaining" />
         </columns>
       </TableView>
    </children>
