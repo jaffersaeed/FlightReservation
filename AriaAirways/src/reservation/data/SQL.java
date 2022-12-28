@@ -2,15 +2,18 @@ package reservation.data;
 
 
 import javafx.collections.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
+
 import javafx.collections.ObservableList;
 import reservation.util.Flight;
 import reservation.util.Booking;
+
 
 public class SQL {
 	
@@ -24,17 +27,17 @@ public class SQL {
 
 	/**public static void main(String[] args) {
 		System.out.println("performing setup...");		
-		String userName = "asolomon14@student.gsu.edu";
+		String username = "asolomon14@student.gsu.edu";
 		String userPassword = "Mountain3717";
 		String cnnString=
 				"jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;"
-				+ "user=" + userName + ";"
+				+ "user=" + username + ";"
 				+ "password=" + userPassword + ";"
 				+ "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;"
 				+ "loginTimeout=30;authentication=ActiveDirectoryPassword";
 		
 	}**/
-	public static String createUser(String userName, String password, String type, String firstName,
+	public static String createUser(String username, String password, String type, String firstName,
 			String lastName, String address, String city, String state, String zipCode, String phoneNumber,String email,
 			String ssn, String securityQ, String securityA) throws SQLException {
 		
@@ -42,9 +45,9 @@ public class SQL {
 
 		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
-
+		String query = "INSERT INTO dbo.[User] Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
-		statement.setString(1, userName);
+		statement.setString(1, username);
 		statement.setString(2, password);
 		statement.setString(3, type);
 		statement.setString(4, firstName);
@@ -67,13 +70,54 @@ public class SQL {
 
 	}
 	public static String[] getUser(String username) throws SQLException {
+		String[] user = new String[14];
+		
+		try {
+			SQL c = new SQL();
+			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			String query = "SELECT * FROM dbo.[User] WHERE username=?";
 
-		SQL c = new SQL();
+			PreparedStatement statement = c.connection.prepareStatement(query);
+
+			statement.setString(1, username);
+
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+				user[0] = result.getString(1);
+				user[1] = result.getString(2);
+				user[2] = result.getString(3);
+				user[3] = result.getString(4);
+				user[4] = result.getString(5);
+				user[5] = result.getString(6);
+				user[6] = result.getString(7);
+				user[7] = result.getString(8);
+				user[8] = result.getString(9);
+				user[9] = result.getString(10);
+				user[10] = result.getString(11);
+				user[11] = result.getString(12);
+				user[12] = result.getString(13);
+				user[13] = result.getString(14);
+			}
+		
+		result.close();
+		statement.close();
+		c.connection.close();
+		
+		
+			
+		} catch(SQLException ex) {
+			throw ex;
+		}
+		return user;
+	}
+
+		/*SQL c = new SQL();
 
 		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 		String[] user = new String[14];
 
-		String query = "SELECT * FROM User WHERE username=?";
+		String query = "SELECT * FROM dbo.[User] WHERE username=?";
 
 		PreparedStatement statement = c.connection.prepareStatement(query);
 
@@ -102,15 +146,16 @@ public class SQL {
 
 		return user;
 
-	}
+	}*/
 	public static String[] getUser(String username, String password) throws SQLException {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		///c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryIntegrated");
 		String[] user = new String[14];
 
-		String query = "SELECT * FROM User WHERE username=? and password=?";
+		String query = "SELECT * FROM dbo.[User] WHERE username=? and password=?";
 
 		PreparedStatement statement = c.connection.prepareStatement(query);
 
@@ -141,17 +186,17 @@ public class SQL {
 		return user;
 
 	}
-	public static String getUsername(String userName) throws SQLException {
+	public static String getUsername(String username) throws SQLException {
 
 		SQL c = new SQL();
 
 		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
 
-		String query = "SELECT username FROM User WHERE username=?";
+		String query = "SELECT username FROM dbo.[User] WHERE username=?";
 
 		PreparedStatement statement = c.connection.prepareStatement(query);
 
-		statement.setString(1, userName);
+		statement.setString(1, username);
 
 		ResultSet result = statement.executeQuery();
 		
@@ -245,7 +290,7 @@ public class SQL {
 		return null;
 		
 	}
-	public static String createBooking(int bookingNumber, String dateCreated, String userName,
+	public static String createBooking(int bookingNumber, String dateCreated, String username,
 			int flightNumber, String departureDate, int ticketNumber) throws SQLException {
 		
 		SQL c = new SQL();
@@ -256,7 +301,7 @@ public class SQL {
 		PreparedStatement statement = c.connection.prepareStatement(query);
 		statement.setInt(1, bookingNumber);
 		statement.setString(2, dateCreated);
-		statement.setString(3, userName);
+		statement.setString(3, username);
 		statement.setInt(4, flightNumber);
 		statement.setString(5, departureDate);
 		statement.setInt(6, ticketNumber);
@@ -330,7 +375,7 @@ public class SQL {
 
 	}
 	
-	public static String[] getBooking(String departureDate, String userName) throws SQLException {
+	public static String[] getBooking(String departureDate, String username) throws SQLException {
 		SQL c = new SQL();
 
 		String[] reservation = new String[6];
@@ -342,7 +387,7 @@ public class SQL {
 		PreparedStatement statement = c.connection.prepareStatement(query);
 
 		statement.setString(1, departureDate);
-		statement.setString(2, userName);
+		statement.setString(2, username);
 
 		ResultSet result = statement.executeQuery();
 

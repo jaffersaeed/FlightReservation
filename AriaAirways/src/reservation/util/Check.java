@@ -5,7 +5,7 @@ import reservation.data.SQL;
 
 public class Check {
 	
-	private Check() {
+	public Check() {
 		
 	}
 	
@@ -17,7 +17,7 @@ public class Check {
 			result = SQL.getUser(username, password);
 		}
 		catch (SQLException sql) {
-			System.out.println(sql.getSQLState());
+			System.out.println(sql.getMessage());
 			return false;
 		}
 		

@@ -63,7 +63,7 @@ public class LoginCustomerController{
 					else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
 					Main m = new Main();
-					m.changeScene("MainMenu.fxml");
+					m.changeScene("WelcomePage.fxml");
 			}else {
 				error.setText("Wrong Username or Password, please try again!");
 			}

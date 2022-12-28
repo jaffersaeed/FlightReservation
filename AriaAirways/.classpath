@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SceneBuilder"/>
+	<classpathentry kind="lib" path="C:/Users/jaffe/Downloads/sqljdbc_11.2.1.0_enu/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jaffe/Downloads/sqljdbc_11.2.1.0_enu/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
