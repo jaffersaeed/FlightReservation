@@ -3,8 +3,10 @@ package  reservation.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
@@ -23,7 +25,8 @@ import reservation.util.Booking;
 import reservation.util.Check;
 import reservation.util.Flight;
 
-public class AvailableFlightsController {
+public class AvailableFlightsController implements Initializable{
+	
 
 	@FXML
 	private TableView<Flight>table;
@@ -36,9 +39,9 @@ public class AvailableFlightsController {
 	@FXML
 	private TableColumn<Flight, String> departingColumn; 
 	@FXML
-	private TableColumn<Flight, String> capacityColumn;
+	private TableColumn<Flight, Integer> capacityColumn;
 	@FXML
-	private TableColumn<Flight, String> remainingColumn;
+	private TableColumn<Flight, Integer> remainingColumn;
 	
 	@FXML
 	private Button add;
@@ -53,9 +56,9 @@ public class AvailableFlightsController {
 	
 	
 
-	public ObservableList<Flight> getFlight() {
+	/*public ObservableList<Flight> getFlight() {
 		ObservableList<Flight> List = FXCollections.observableArrayList(); 
-
+	}*/
 	public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();
 	        m.changeScene("AdminMainMenu.fxml");
@@ -71,13 +74,21 @@ public class AvailableFlightsController {
 	        m.changeScene("AdminMainMenu.fxml");
     }
 
-	public ObservableList<Flight> getFlights(){
+/*	public ObservableList<Flight> getFlights(){
 		ObservableList<Flight> flight= SQL.getFlight();
 		return flight;
-	}
-	
+	}*/
+
+
+	public void initialize(URL url, ResourceBundle rb ) {
+			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+			originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
+			departingCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
+			departingColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));
+			capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
+			remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
+			
+			table.setItems(SQL.getFlight());
 		
-	
+	}
 }
-
-

@@ -201,7 +201,7 @@ public class SQL {
 
 	}
 
-	public static void createFlight(int flightNumber, String departureCity, String departureDate,
+	public static void createFlight(String flightNumber, String departureCity, String departureDate,
 			String destinationCity, int capacity, int passengerCount) throws SQLException {
 
 		SQL c = new SQL();
@@ -210,7 +210,7 @@ public class SQL {
 
 		String query = "insert into Flight values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
-		statement.setInt(1, flightNumber);
+		statement.setString(1, flightNumber);
 		statement.setString(2, departureCity);
 		statement.setString(3, departureDate);
 		statement.setString(4, destinationCity);
@@ -265,7 +265,7 @@ public class SQL {
 			ResultSet result = statement.executeQuery();
 			flightSchedule = FXCollections.observableArrayList();
 			while (result.next()) {
-				flightSchedule.addAll(new Flight(result.getInt(1),result.getString(2),result.getString(3),
+				flightSchedule.addAll(new Flight(result.getString(1),result.getString(2),result.getString(3),
 					result.getString(4), result.getInt(5),result.getInt(6)));
 				
 			}
