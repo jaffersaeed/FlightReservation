@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import reservation.util.Check;
 import reservation.util.Menu;
-import reservation.data.SQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
