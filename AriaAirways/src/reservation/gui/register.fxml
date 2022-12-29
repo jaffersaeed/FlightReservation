@@ -26,7 +26,7 @@
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Text>
-            <PasswordField id="lastName" fx:id="phoneNumber" layoutX="218.0" layoutY="136.0" />
+            <TextField id="lastName" fx:id="phoneNumber" layoutX="218.0" layoutY="136.0" />
             <TextField id="firstName" fx:id="firstName" layoutX="218.0" layoutY="67.0" />
             <Text layoutX="131.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
             <Text layoutX="132.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
