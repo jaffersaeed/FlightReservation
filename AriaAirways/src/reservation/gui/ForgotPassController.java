@@ -1,23 +1,25 @@
 package  reservation.gui;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import reservation.util.Check;
-import reservation.data.SQL;
+import reservation.util.Menu;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 
-public class ForgotPassController {
+public class ForgotPassController implements Initializable {
     @FXML
     private Button back;
     @FXML
@@ -25,7 +27,12 @@ public class ForgotPassController {
     @FXML
     private TextField UsernameForgotpass;
     @FXML
-    private Label Error;
+    private Label error;
+    @FXML
+    private TextField SecurityAnswer;
+    @FXML
+    private ComboBox comb;
+    
     ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign2.jpg"));
@@ -34,15 +41,35 @@ public class ForgotPassController {
     	 Main m = new Main();
 	        m.changeScene("loginCustomer.fxml");
     }
-    
-    public void changePass(ActionEvent event) throws IOException {
-    	if(Check.usernameExists(UsernameForgotPass.getText())) {
-    	 Main m = new Main();
-    	 m.changeScene("ForgotPassword2.fxml");
-        }
-    else
-       {
-            Error.setText("Username Doesn't Exist");;
-        }
-}
+    @FXML
+    void comb(ActionEvent event) {
+        String s = comb.getSelectionModel().getSelectedItem().toString();
+
+        
+    }   
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+         ObservableList<String> list = FXCollections.observableArrayList("What is your favorite pet's name?","Where is your mom from?","What is your mother's maiden name?","What is the name of your 2nd grade teacher?");
+         comb.setItems(list);
+    }
+         
+         
+     public void changePass(ActionEvent event) throws IOException {
+    	 if(Check.usernameExists(UsernameForgotpass.getText())) {
+    		 
+    		 String [] query = Menu.forgotPassword(UsernameForgotpass.getText());
+    		 if (query.length == 15) {
+    			 if(SecurityAnswer.getText().equals(query[2])) {
+    		 		error.setText(query[1]);				
+    	 }
+    			if(!SecurityAnswer.getText().equals(query[2])) {
+    		 		error.setText("Invalid Answer");	
+    			 }
+    		 }
+    	 }
+    	 
+    	 if(!Check.usernameExists(UsernameForgotpass.getText())) {
+    		 error.setText("Username Doesn't Exist");
+    	 }
+    }
 }
