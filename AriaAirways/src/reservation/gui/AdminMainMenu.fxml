@@ -27,5 +27,6 @@
             <Image url="@GUI_LOGO.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="manage" layoutX="249.0" layoutY="289.0" mnemonicParsing="false" onAction="#manageFlight" text="Manage Flights" />
    </children>
 </AnchorPane>

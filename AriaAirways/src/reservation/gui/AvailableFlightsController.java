@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,32 +23,23 @@ import reservation.util.Booking;
 import reservation.util.Check;
 import reservation.util.Flight;
 
-public class AvailableFlightsController implements Initializable {
+public class AvailableFlightsController {
 
 	@FXML
-	private TableView<Flight, Integer> table;
+	private TableView<Flight>table;
 	@FXML
-	private TableColumn<Flight, Integer> flightIdColumn;
+	private TableColumn<Flight, String> flightIdColumn;
 	@FXML
-	private TableColumn<Flight, Integer> originCityColumn;
+	private TableColumn<Flight, String> originCityColumn;
 	@FXML
-	private TableColumn<Flight, Integer> departingCity;
+	private TableColumn<Flight, String> departingCity;
 	@FXML
-	private TableColumn<Flight, Integer> departingColumn; // depart time
+	private TableColumn<Flight, String> departingColumn; // depart time
 	@FXML
-	private TableColumn<Flight, Integer> capacityColumn;
+	private TableColumn<Flight, String> capacityColumn;
 	@FXML
-	private TableColumn<Flight, Integer> remainingColumn;
-	@FXML
-	private TableColumn<Booking, Integer> bookingNumber;
-	@FXML
-	private TableColumn<Booking, Integer> dateCreated;
-	@FXML
-	private TableColumn<Booking, Integer> flightNumber;
-	@FXML
-	private TableColumn<Booking, Integer> departureDate;
-	@FXML
-	private TableColumn<Booking, Integer> ticketNumber;
+	private TableColumn<Flight, String> remainingColumn;
+	
 	@FXML
 	private Button add;
 	@FXML
@@ -59,94 +51,33 @@ public class AvailableFlightsController implements Initializable {
 	
 	static int count = 1;
 	
-	Connection conn = null;
-	ResultSet rs = null;
-	PreparedStatement pst = null;
 	
+
+	public ObservableList<Flight> getFlight() {
+		ObservableList<Flight> List = FXCollections.observableArrayList();
+
 	public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();
 	        m.changeScene("AdminMainMenu.fxml");
     }
 	
 	public void add(ActionEvent event) throws IOException {
-    	 addButtonClicked();
+   	  Main m = new Main();
+	        m.changeScene("AdminMainMenu.fxml");
     }
-	public void addButtonClicked() {
-		try {
-			ObservableList<Flight> productSelected, allProducts;
-			allProducts = table.getItems();
-			productSelected = table.getSelectionModel().getSelectedItems();
-			Flight flight=(Flight)table.getSelectionModel().getSelectedItem();
-			
-			if (Check.bookingExists(flight.getDepartureDate(), Login.user.getUserName())) {
-				error.setText("Booking already exists");
-			} else {
-				flightQuery = SQL.getPassengerCount(flight.getflightNumber());
-				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
-					error.setText("Flight is full.");
-				}else {
-					Booking booking = new Booking(Login.user.getUserName(), flight.getFlightNumber(),
-							flight.getDepartureDate(), count++);
-					SQL.updatePassengerCount(++flightQuery[1], flight.getFlightNumber());
-					 Main m = new Main();
-					 m.changeScene("AdminMainMenu.fxml");
-				}
-			}
-
-		} catch (Exception ex) {
-			error.setText("Invalid Input");
-
-		}
-	}
 	
 	public void delete(ActionEvent event) throws IOException {
-    	 deleteButtonClicked();
+   	  Main m = new Main();
+	        m.changeScene("AdminMainMenu.fxml");
     }
-		public void deleteButtonClicked() {
-		try {
-			ObservableList<Booking> productSelected, allProducts;
-			allProducts = booking.getItems();
-			productSelected = booking.getSelectionModel().getSelectedItems();
-			Booking book =(Booking)booking.getSelectionModel().getSelectedItem();
-			SQL.deleteBooking(book.getBookingNumber());
-			productSelected.forEach(allProducts::remove);
-			flightQuery = SQL.getPassengerCount(res.getFlightNumber());
-			if (flightQuery.length != 0) {
-				SQL.updatePassengerCount(--flightQuery[1], book.getflightNumber());
-				BookFlight updateBook=new BookFlight();
-				Main m = new Main();
-				m.changeScene("AdminMainMenu.fxml");
-			}
-			
-		} catch (NoSuchElementException ex) {
-			error.setText("All bookings have been removed");
-		}catch(Exception ex) {
-			error.setText("You haven't made a selection");
 
-		}
-	}
-
-	@Override
-	public void initalize(URL url, ResourceBundle rn) {
-		
-		flightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-		originCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
-		departingCity.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
-		departingColumn.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-		capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
-		remainingColumn.setCellValueFactory(new PropertyValueFactory<>("passengerCount"));
-		bookingNumber.setCellValueFactory(new PropertyValueFactory<>("reservationNumber"));
-		dateCreated.setCellValueFactory(new PropertyValueFactory<>("dateCreated"));
-		flightNumber.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-		departureDate.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-		ticketNumber.setCellValueFactory(new PropertyValueFactory<>("ticketNumber"));
-	}
-	
-
-	public ObservableList<Flight> getFlight(){
+	public ObservableList<Flight> getFlights(){
 		ObservableList<Flight> flight= SQL.getFlight();
 		return flight;
 	}
+	
+		
+	
 }
-}
+
 
