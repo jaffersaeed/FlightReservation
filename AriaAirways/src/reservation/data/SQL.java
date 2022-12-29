@@ -2,6 +2,7 @@ package reservation.data;
 
 
 import javafx.collections.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,11 +20,12 @@ public class SQL {
 	private Connection connection;
 	static ObservableList<Flight> flightSchedule;
 	static ObservableList<Booking> booking;
-	private static final String Css="jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=CloudSAd2cc1c94@flightres;password=Victory17;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
+	private static final String Css = "jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=CloudSAd2cc1c94@flightres;password=Victory17;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
 	
-	private SQL() {}
+	private SQL() {
 		
-	
+	}
+
 	public static String createUser(String username, String password, String type, String firstName,
 			String lastName, String address, String city, String state, String zipCode, String phoneNumber,String email,
 			String ssn, String securityQ, String securityA) throws SQLException {
@@ -56,9 +58,6 @@ public class SQL {
 		return "Account created successfully";
 
 	}
-	
-	
-	
 	public static String[] getUser(String username) throws SQLException {
 		String[] user = new String[14];
 		
@@ -141,6 +140,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
+		
 		c.connection = DriverManager.getConnection(Css);
 		String[] user = new String[14];
 
@@ -249,13 +249,16 @@ public class SQL {
 		}
 
 	}
+	
+
+	
 	public static ObservableList<Flight> getFlight() {
-		
+		flightSchedule = FXCollections.observableArrayList();
 		try {
 
 			Connection connection = DriverManager.getConnection(Css);
 
-			String query = "SELECT * FROM Flight";
+			String query = "SELECT * FROM dbo.Flight";
 
 			PreparedStatement statement = connection.prepareStatement(query);
 
@@ -447,7 +450,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection(Css);
 
 		String query = "update BookingCount set resCount=?";
 
@@ -467,7 +470,7 @@ public class SQL {
 
 		try {
 
-			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			c.connection = DriverManager.getConnection(Css);
 
 			String query = "SELECT capacity,passengerCount FROM Flight WHERE flightNumber=?";
 
@@ -501,7 +504,7 @@ public class SQL {
 
 			SQL c = new SQL();
 
-			c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+			c.connection = DriverManager.getConnection(Css);
 
 			String query = "update flight set passengerCount=? where flightNumber=?";
 
@@ -524,7 +527,7 @@ public class SQL {
 
 		SQL c = new SQL();
 
-		c.connection = DriverManager.getConnection("jdbc:sqlserver://flightres.database.windows.net:1433;database=Data;user=asolomon14@student.gsu.edu;password=Mountain3717;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword");
+		c.connection = DriverManager.getConnection(Css);
 
 		String city = "";
 		String query = "SELECT city FROM zip WHERE zipCode = ?";

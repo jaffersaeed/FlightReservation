@@ -35,5 +35,8 @@ public class MainMenuController {
     	 Main m = new Main();
 	        m.changeScene("AvailableFlights.fxml");
     }
-   
+    public void myFlight(ActionEvent event) throws IOException {
+    	 Main m = new Main();
+	        m.changeScene("AvailableFlights.fxml");
+}
 }
