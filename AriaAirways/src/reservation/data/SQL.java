@@ -224,7 +224,7 @@ public class SQL {
 	}
 	
 	
-	public static void deleteFlight(int flightNumber) {
+	public static void deleteFlight(String flightNumber) {
 
 		try {
 			
@@ -234,7 +234,7 @@ public class SQL {
 
 		String query = "delete from Flight where flightNumber = ?";
 		PreparedStatement statement = c.connection.prepareStatement(query);
-		statement.setInt(1, flightNumber);
+		statement.setString(1, flightNumber);
 
 		statement.executeUpdate();
 
@@ -261,6 +261,43 @@ public class SQL {
 			String query = "SELECT * FROM dbo.Flight";
 
 			PreparedStatement statement = connection.prepareStatement(query);
+
+			ResultSet result = statement.executeQuery();
+			flightSchedule = FXCollections.observableArrayList();
+			while (result.next()) {
+				flightSchedule.addAll(new Flight(result.getString(1),result.getString(2),result.getString(3),
+					result.getString(4), result.getInt(5),result.getInt(6)));
+				
+			}
+			return flightSchedule;
+		}
+			
+		catch (SQLException s) {
+			System.out.println(s.getMessage());
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return null;
+		
+	}
+	
+	public static ObservableList<Flight> getFlightDetails(String departureCity, String departureDate, String destinationCity) {
+		flightSchedule = FXCollections.observableArrayList();
+		try {
+
+			Connection connection = DriverManager.getConnection(Css);
+
+			String query = "SELECT * FROM dbo.Flight WHERE departureCity = ? AND departureDate = ? AND destinationCity = ?";
+			PreparedStatement statement = connection.prepareStatement(query);
+			
+			statement.setString(1, departureCity);
+			statement.setString(2, departureDate);
+			statement.setString(3, destinationCity);
+
+
+			
 
 			ResultSet result = statement.executeQuery();
 			flightSchedule = FXCollections.observableArrayList();

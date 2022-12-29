@@ -16,6 +16,7 @@ import reservation.util.Flight;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -42,17 +43,16 @@ public class BookFlightController implements Initializable {
     @FXML
     private Button back;
     @FXML
-    private ComboBox  origin;
+    public ComboBox  origin;
     @FXML
-    private ComboBox  destination;
+    public ComboBox  destination;
     @FXML
     private Button view;
     @FXML
-    private CheckBox oneway;
+    private Button book;
     @FXML
-    private CheckBox roundTrip;
-    @FXML
-    private DatePicker travelDate;
+    public DatePicker travelDate;
+    
     ImageView myImageView;
     
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
@@ -62,19 +62,31 @@ public class BookFlightController implements Initializable {
 	        m.changeScene("MainMenu.fxml");
     }
      public void viewFlights(ActionEvent event) throws IOException {
+   
+    	 
+    	 table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY")),destination.getSelectionModel().getSelectedItem().toString()));
+    }
+     
+     public void book(ActionEvent event) throws IOException {
     	 Main m = new Main();
 	        m.changeScene("MainMenu.fxml");
     }
 
  	public void initialize(URL url, ResourceBundle rb ) {
+ 		ObservableList<String> list = FXCollections.observableArrayList("Atlanta","Boston","Chicago","Dallas-Fort Worth","Denver","Houston","Las Vegas","Los Angeles","Miami","New York","Pheonix","San Francisco","Seattle","Washington D.C");
+ 		origin.setItems(list);
+ 		ObservableList<String> list1 = FXCollections.observableArrayList("Atlanta","Boston","Chicago","Dallas-Fort Worth","Denver","Houston","Las Vegas","Los Angeles","Miami","New York","Pheonix","San Francisco","Seattle","Washington D.C");
+ 		destination.setItems(list1);
+ 		
  			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
  			originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
  			departingCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
  			departingColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));
  			capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
  			remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
- 			
- 			table.setItems(SQL.getFlight());
+ 
+ 			//table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY'")),destination.getSelectionModel().getSelectedItem().toString()));
  		
  	}
+ 	
  }
