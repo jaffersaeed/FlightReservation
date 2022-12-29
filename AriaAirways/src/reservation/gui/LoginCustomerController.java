@@ -49,6 +49,16 @@ public class LoginCustomerController{
 	        m.changeScene("WelcomePage.fxml");
     }
     
+    public void adminLogin(ActionEvent event) throws IOException {
+   	 Main m = new Main();
+	        m.changeScene("Adminlogin.fxml");
+   }
+    
+    public void forgotPass(ActionEvent event) throws IOException {
+   	 Main m = new Main();
+	        m.changeScene("forgotPassword.fxml");
+   }
+    
     public void LoginButtonClicked(ActionEvent event) throws IOException {
     	
     	try {
