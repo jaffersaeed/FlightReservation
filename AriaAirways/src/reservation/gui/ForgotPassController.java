@@ -67,6 +67,7 @@ public class ForgotPassController implements Initializable {
     			 }
     		 }
     	 }
+    	 
     	 if(!Check.usernameExists(UsernameForgotpass.getText())) {
     		 error.setText("Username Doesn't Exist");
     	 }
