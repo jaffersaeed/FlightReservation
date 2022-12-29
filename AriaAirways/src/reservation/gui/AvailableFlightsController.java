@@ -34,7 +34,7 @@ public class AvailableFlightsController {
 	@FXML
 	private TableColumn<Flight, String> departingCity;
 	@FXML
-	private TableColumn<Flight, String> departingColumn; // depart time
+	private TableColumn<Flight, String> departingColumn; 
 	@FXML
 	private TableColumn<Flight, String> capacityColumn;
 	@FXML
