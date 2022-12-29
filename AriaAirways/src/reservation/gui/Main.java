@@ -20,7 +20,7 @@ public class Main extends Application {
         primaryStage.setTitle("Aria's Airline Reservations");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
-        
+       
     }
 
     public void changeScene(String fxml) throws IOException {
