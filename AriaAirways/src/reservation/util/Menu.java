@@ -115,20 +115,22 @@ public interface Menu {
 	}
 	
 
-	public static String[] forgotPassword(String userName) {
-		String[] query = null; String[] result = new String[3];
+	public static String[] forgotPassword(String username) {
+		String[] query = null; 
+		String[] result = new String[4];
 
-		if (Check.usernameExists(userName)) {
+		if (Check.usernameExists(username)) {
 			try {
-				query = SQL.getUser(userName);
+				query = SQL.getUser(username);
 			}
 			catch (SQLException sql) {
 				result[0] = sql.getMessage();
 			}
 			
-			result[0] = query[11];
-			result[1] = query[12];
-			result[2] = query[1];
+			result[0] = query[0];
+			result[1] = query[1];
+			result[2] = query[12];
+			result[3] = query[13];
 			
 		}
 		else {

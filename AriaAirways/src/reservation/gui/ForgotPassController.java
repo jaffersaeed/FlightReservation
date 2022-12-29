@@ -49,7 +49,7 @@ public class ForgotPassController implements Initializable {
     }   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         ObservableList<String> list = FXCollections.observableArrayList("What is your favorite pet's name?","Where is your mom from?","What is your mother's maiden name?","What is the name of your 2nd grade teacher?");
+         ObservableList<String> list = FXCollections.observableArrayList("What is your favorite pet's name?","Where is your mom from?","What is your mother's maiden name","What is the name of your 2nd grade teacher?");
          comb.setItems(list);
     }
          
@@ -58,11 +58,11 @@ public class ForgotPassController implements Initializable {
     	 if(Check.usernameExists(UsernameForgotpass.getText())) {
     		 
     		 String [] query = Menu.forgotPassword(UsernameForgotpass.getText());
-    		 if (query.length == 15) {
-    			 if(SecurityAnswer.getText().equals(query[2])) {
+    		 if (query.length == 4) {
+    			 if(SecurityAnswer.getText().equals(query[3])) {
     		 		error.setText(query[1]);				
     	 }
-    			if(!SecurityAnswer.getText().equals(query[2])) {
+    			if(!SecurityAnswer.getText().equals(query[3])) {
     		 		error.setText("Invalid Answer");	
     			 }
     		 }
