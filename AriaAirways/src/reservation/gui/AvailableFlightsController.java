@@ -54,7 +54,7 @@ public class AvailableFlightsController {
 	
 
 	public ObservableList<Flight> getFlight() {
-		ObservableList<Flight> List = FXCollections.observableArrayList();
+		ObservableList<Flight> List = FXCollections.observableArrayList(); 
 
 	public void goBack(ActionEvent event) throws IOException {
     	 Main m = new Main();
