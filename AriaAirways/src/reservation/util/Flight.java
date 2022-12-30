@@ -10,7 +10,7 @@ import reservation.data.SQL;
 
 public class Flight {
 	
-	private String flightNumber;
+	private int flightNumber;
 	private String departureCity;
 	private String departureDate;
 	private String destinationCity; 
@@ -24,7 +24,7 @@ public class Flight {
 	}
 	
 
-	public Flight(String flightNumber, String departureCity, String departureDate,
+	public Flight(int flightNumber, String departureCity, String departureDate,
 			String destinationCity, int capacity,int passengerCount) {
 		super();
 		this.flightNumber = flightNumber;
@@ -51,12 +51,12 @@ public class Flight {
 	}
 
 
-	public String getFlightNumber() {
+	public int getFlightNumber() {
 		return flightNumber;
 	}
 
 
-	public void setFlightNumber(String flightNumber) {
+	public void setFlightNumber(int flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 
