@@ -10,7 +10,7 @@ public class Booking {
 	private int bookingNumber; 
 	private String dateCreated; 
 	private String userName;
-	private int flightNumber; 
+	private String flightNumber; 
 	private String departureDate; 
 	private int ticketNumber;
 	
@@ -26,7 +26,7 @@ public class Booking {
 
 	}
 
-	public Booking(String userName, String departureDate, int ticketNumber, int flightNumber) {
+	public Booking(String userName, String departureDate, int ticketNumber, String flightNumber) {
 		int lastCount = Check.getbookingCount();
 		bookingCount = ++lastCount;
 		this.flightNumber = bookingCount;
@@ -39,7 +39,7 @@ public class Booking {
 		Check.setbookingCount(bookingCount);
 	}
 	
-	public Booking(int bookingNumber, String dateCreated, String userName, int flightNumber, String
+	public Booking(int bookingNumber, String dateCreated, String userName, String flightNumber, String
 				departureDate, int ticketNumber) {
 			this.bookingNumber = bookingNumber;
 			this.dateCreated = dateCreated;

@@ -501,7 +501,7 @@ public class SQL {
 
 	}
 	
-	public static int[] getPassengerCount(int flightNumber) {
+	public static int[] getPassengerCount(String flightNumber) {
 
 		SQL c = new SQL();
 
@@ -535,7 +535,7 @@ public class SQL {
 		return null;
 
 	}
-	public static void updatePassengerCount(int passengerCount, int flightNumber) {
+	public static void updatePassengerCount(int passengerCount, String flightNumber) {
 
 		try {
 

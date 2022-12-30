@@ -12,7 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import reservation.data.SQL;
+import reservation.util.Check;
+import reservation.util.Booking;
 import reservation.util.Flight;
+import reservation.gui.LoginCustomerController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +27,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 public class BookFlightController implements Initializable {
+	
+	int[] flightQuery;
+	static int count = 1;
 	
 	@FXML
 	private TableView<Flight>table;
@@ -68,8 +74,36 @@ public class BookFlightController implements Initializable {
     }
      
      public void book(ActionEvent event) throws IOException {
+    	 try {
+ 			ObservableList<Flight> productSelected, allProducts;
+ 			allProducts = table.getItems();
+ 			productSelected = table.getSelectionModel().getSelectedItems();
+ 			Flight flight=(Flight)table.getSelectionModel().getSelectedItem();
+ 			
+ 			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
+ 				Alert.display("Manage Flight", "Reservation Already Exist");
+ 			} else {
+ 				flightQuery = SQL.getPassengerCount(flight.getFlightNumber());
+ 				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
+ 					Alert.display("Manage Flight", "This Flight is Full!");
+ 				}else {
+ 					Booking booking = new Booking(LoginCustomerController.user.getUserName(), flight.getFlightNumber(),
+ 							flight.getDepartureDate(), count++);
+ 					SQL.updatePassengerCount(+flightQuery[1], flight.getFlightNumber());
+ 					
+ 				}
+ 			}
+
+ 		} catch (Exception ex) {
+ 			Alert.display("Manage Flight", "Invalid Input please enter correct inputs!");
+
+ 		}
+    	 
     	 Main m = new Main();
-	        m.changeScene("MainMenu.fxml");
+    	 	
+	        m.changeScene("Confirmation.fxml");
+	        
+	     
     }
 
  	public void initialize(URL url, ResourceBundle rb ) {
