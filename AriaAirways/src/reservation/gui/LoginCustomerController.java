@@ -74,7 +74,7 @@ public class LoginCustomerController{
 					Main m = new Main();
 					m.changeScene("MainMenu.fxml");
 			}else {
-				error.setText("Wrong Username or Password, please try again!");
+				error.setText("Wrong Usernae or Password, please try again!");
 			}
 				
 			} catch (Exception e1) {
