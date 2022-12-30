@@ -71,7 +71,9 @@ public class AdminLoginController {
 						
 						else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
-							error.setText("You do not have access to this page.");
+							Main m = new Main();
+						m.changeScene("AdminMainMenu.fxml");
+							//error.setText("You do not have access to this page.");
 					
 			}else {
 				error.setText("Wrong Username or Password, please try again!");

@@ -64,7 +64,7 @@ public class myFlightsController implements Initializable{
 	
 	public void add(ActionEvent event) throws IOException {
    	  Main m = new Main();
-	        m.changeScene("AdminMainMenu.fxml");
+	        m.changeScene("BookFlights.fxml");
     }
 	
 	public void delete(ActionEvent event) throws IOException {

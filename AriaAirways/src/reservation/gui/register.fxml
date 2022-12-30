@@ -36,6 +36,7 @@
             <Text layoutX="148.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
             <Text layoutX="169.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
             <TextField fx:id="zipcode" layoutX="220.0" layoutY="251.0" prefHeight="26.0" prefWidth="81.0" />
+            <Text layoutX="450.0" layoutY="300" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" /> 
             <Text layoutX="311.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
             <Text layoutX="149.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zipcode" />
             <TextField fx:id="username" layoutX="222.0" layoutY="324.0" />
@@ -48,7 +49,7 @@
             <Text layoutX="106.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Question" />
             <Text layoutX="107.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Answer" />
             <ComboBox fx:id="comb" layoutX="221.0" layoutY="404.0" onAction="#Select" prefWidth="150.0" />
-            <TextField fx:id="ssn" layoutX="345.0" layoutY="251.0" prefHeight="25.0" prefWidth="51.0" />
+            <TextField fx:id="ssn" layoutX="345.0" layoutY="251.0" prefHeight="25.0" prefWidth="60.0" />
             <Text layoutX="311.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN" />
             <TextField id="firstName" fx:id="lastName" layoutX="218.0" layoutY="101.0" />
             <Text layoutX="110.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />

@@ -90,8 +90,10 @@ public class BookFlightController implements Initializable {
  				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
  					error.setText("This Flight is Full!");
  				}else {
- 					Booking booking = new Booking(LoginCustomerController.user.getUserName(), flight.getFlightNumber(),
- 							flight.getDepartureDate(), count++);
+ 					Booking booking = new Booking(  LoginCustomerController.user.getUserName(), 
+ 													flight.getDepartureDate(), 
+ 													count++,
+ 													flight.getFlightNumber());
  					SQL.updatePassengerCount(+flightQuery[1], flight.getFlightNumber());
  					 Main m = new Main();
  					 m.changeScene("Confirmation.fxml");

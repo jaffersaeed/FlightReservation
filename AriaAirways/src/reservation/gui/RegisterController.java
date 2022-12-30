@@ -116,7 +116,8 @@ public class RegisterController implements Initializable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-    	 		error.setText("Registered!");
+    	 		Main m = new Main();
+    	 		m.changeScene("WelcomePage.fxml");
     			
 		
     }
