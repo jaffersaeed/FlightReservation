@@ -16,11 +16,11 @@
    <children>
       <ImageView fitHeight="411.0" fitWidth="731.0" layoutX="-57.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Downloads/GUIdesign5.jpg" />
+            <Image url="@GUIdesign5.jpg" />
          </image>
       </ImageView>
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-      <Text layoutX="259.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Flight">
+      <Text layoutX="258.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Flight">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -43,5 +43,6 @@
         </columns>
       </TableView>
       <Button fx:id="book" layoutX="278.0" layoutY="360.0" mnemonicParsing="false" onAction="#book" text="Book" />
+      <Label fx:id="error" layoutX="256.0" layoutY="61.0" prefHeight="17.0" prefWidth="99.0" textFill="#fd0606" />
    </children>
 </AnchorPane>

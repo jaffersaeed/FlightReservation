@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,6 +59,8 @@ public class BookFlightController implements Initializable {
     private Button book;
     @FXML
     public DatePicker travelDate;
+    @FXML
+    public Label error;
     
     ImageView myImageView;
     
@@ -85,23 +88,21 @@ public class BookFlightController implements Initializable {
  			} else {
  				flightQuery = SQL.getPassengerCount(flight.getFlightNumber());
  				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
- 					Alert.display("Manage Flight", "This Flight is Full!");
+ 					error.setText("Manage Flight", "This Flight is Full!");
  				}else {
  					Booking booking = new Booking(LoginCustomerController.user.getUserName(), flight.getFlightNumber(),
  							flight.getDepartureDate(), count++);
  					SQL.updatePassengerCount(+flightQuery[1], flight.getFlightNumber());
+ 					 Main m = new Main();
+ 					 m.changeScene("Confirmation.fxml");
  					
  				}
  			}
 
  		} catch (Exception ex) {
- 			Alert.display("Manage Flight", "Invalid Input please enter correct inputs!");
+ 			error.setText("Invalid Input please enter correct inputs!");
 
  		}
-    	 
-    	 Main m = new Main();
-    	 	
-	        m.changeScene("Confirmation.fxml");
 	        
 	     
     }
