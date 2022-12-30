@@ -1,6 +1,7 @@
 package  reservation.gui;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -108,8 +109,13 @@ public class RegisterController implements Initializable {
 				 phoneNumberStr, ssnStr, (String) comb.getSelectionModel().getSelectedItem(),
 				securityanswer};
 		 		
-    	 		SQL sQL = new SQL();
-    	 		SQL.createUser(usernameStr, passwordStr, type, firstname, lastname, addressStr, cityStr, stateStr, zipcodeStr, phoneNumberStr, phoneNumberStr, ssnStr, securityanswer, securityanswer);
+    	 		SQL c = new SQL();
+    	 		try {
+					c.createUser(usernameStr, passwordStr, type, firstname, lastname, addressStr, cityStr, stateStr, zipcodeStr, phoneNumberStr, phoneNumberStr, ssnStr, securityanswer, securityanswer);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     	 		error.setText("Registered!");
     			
 		

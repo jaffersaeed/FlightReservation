@@ -35,7 +35,7 @@ public class BookFlightController implements Initializable {
 	@FXML
 	private TableView<Flight>table;
 	@FXML
-	private TableColumn<Flight, String> flightIdColumn;
+	private TableColumn<Flight, Integer> flightIdColumn;
 	@FXML
 	private TableColumn<Flight, String> originCityColumn;
 	@FXML
@@ -81,7 +81,7 @@ public class BookFlightController implements Initializable {
  			ObservableList<Flight> productSelected, allProducts;
  			allProducts = table.getItems();
  			productSelected = table.getSelectionModel().getSelectedItems();
- 			Flight flight= table.getSelectionModel().getSelectedItem();
+ 			Flight flight= (Flight)table.getSelectionModel().getSelectedItem();
  			
  			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
  				error.setText( "Reservation Already Exist");
@@ -113,12 +113,14 @@ public class BookFlightController implements Initializable {
  		ObservableList<String> list1 = FXCollections.observableArrayList("Atlanta","Boston","Chicago","Dallas-Fort Worth","Denver","Houston","Las Vegas","Los Angeles","Miami","New York","Pheonix","San Francisco","Seattle","Washington D.C");
  		destination.setItems(list1);
  		
- 			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+ 			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("flightNumber"));
  			originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
  			departingCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
  			departingColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));
  			capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
  			remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
+ 			
+ 			
  
  	//		table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY'")),destination.getSelectionModel().getSelectedItem().toString()));
  		

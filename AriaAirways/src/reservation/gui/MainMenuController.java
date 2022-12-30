@@ -15,8 +15,6 @@ public class MainMenuController {
     @FXML
     private Button bookflights;
     @FXML
-    private Button flights;
-    @FXML
     private Button myFlights;
     ImageView myImageView;
     
@@ -31,12 +29,9 @@ public class MainMenuController {
     	 Main m = new Main();
 	        m.changeScene("BookFlights.fxml");
     }
-    public void availableFlights(ActionEvent event) throws IOException {
-    	 Main m = new Main();
-	        m.changeScene("AvailableFlights.fxml");
-    }
+ 
     public void myFlight(ActionEvent event) throws IOException {
     	 Main m = new Main();
-	        m.changeScene("AvailableFlights.fxml");
+	        m.changeScene("myFlights.fxml");
 }
 }

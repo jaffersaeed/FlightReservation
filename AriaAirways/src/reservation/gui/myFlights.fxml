@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.gui.AvailableFlightsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.gui.myFlightsController">
    <children>
       <ImageView fitHeight="460.0" fitWidth="861.0" layoutX="-57.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,7 +17,7 @@
          </image>
       </ImageView>
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-      <Text layoutX="236.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Flights">
+      <Text layoutX="236.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Flights">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -26,12 +26,11 @@
       <Button fx:id="delete" layoutX="319.0" layoutY="342.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <TableView fx:id="table" layoutX="76.0" layoutY="109.0" prefHeight="199.0" prefWidth="463.0">
         <columns>
-          <TableColumn fx:id="flightIdColumn" prefWidth="62.0" text="Flight ID" />
-          <TableColumn fx:id="originCityColumn" prefWidth="90.0" text="Origin" />
-            <TableColumn fx:id="departingCity" prefWidth="105.99996948242188" text="Destination" />
-            <TableColumn fx:id="departingColumn" prefWidth="64.6666259765625" text="Time" />
-            <TableColumn fx:id="capacityColumn" prefWidth="59.33331298828125" text="Capacity" />
-            <TableColumn fx:id="remainingColumn" prefWidth="82.66668701171875" text="Remaining" />
+          <TableColumn fx:id="bookingIdColumn" prefWidth="80" text="Booking #" />
+          <TableColumn fx:id="dateCreatedColumn" prefWidth="90.0" text="Booking Date " />
+            <TableColumn fx:id="flightIdColumn" prefWidth="105.99996948242188" text="Flight #" />
+            <TableColumn fx:id="departingColumn" prefWidth="80.6666259765625" text="Flight Date" />
+            <TableColumn fx:id="ticketIdColumn" prefWidth="105" text="Ticket#" />
         </columns>
       </TableView>
    </children>

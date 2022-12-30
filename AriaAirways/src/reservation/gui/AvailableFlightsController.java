@@ -31,7 +31,7 @@ public class AvailableFlightsController implements Initializable{
 	@FXML
 	private TableView<Flight>table;
 	@FXML
-	private TableColumn<Flight, String> flightIdColumn;
+	private TableColumn<Flight, Integer> flightIdColumn;
 	@FXML
 	private TableColumn<Flight, String> originCityColumn;
 	@FXML
@@ -81,7 +81,7 @@ public class AvailableFlightsController implements Initializable{
 
 
 	public void initialize(URL url, ResourceBundle rb ) {
-			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
+			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("flightNumber"));
 			originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
 			departingCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
 			departingColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));

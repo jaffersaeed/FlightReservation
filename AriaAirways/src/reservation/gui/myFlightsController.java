@@ -23,25 +23,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import reservation.data.SQL;
 import reservation.util.Booking;
 import reservation.util.Check;
-import reservation.util.Flight;
+import reservation.gui.LoginCustomerController;
 
 public class myFlightsController implements Initializable{
 	
 
 	@FXML
-	private TableView<Flight>table;
+	private TableView<Booking>table;
 	@FXML
-	private TableColumn<Flight, String> flightIdColumn;
+	private TableColumn<Booking, Integer> bookingIdColumn;
 	@FXML
-	private TableColumn<Flight, String> originCityColumn;
+	private TableColumn<Booking, String> dateCreatedColumn;
 	@FXML
-	private TableColumn<Flight, String> departingCity;
+	private TableColumn<Booking, Integer> flightIdColumn;
 	@FXML
-	private TableColumn<Flight, String> departingColumn; 
+	private TableColumn<Booking, String> departingColumn; 
 	@FXML
-	private TableColumn<Flight, Integer> capacityColumn;
-	@FXML
-	private TableColumn<Flight, Integer> remainingColumn;
+	private TableColumn<Booking, Integer> ticketIdColumn;
 	
 	@FXML
 	private Button add;
@@ -81,14 +79,14 @@ public class myFlightsController implements Initializable{
 
 
 	public void initialize(URL url, ResourceBundle rb ) {
-			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("flightNumber"));
-			originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
-			departingCity.setCellValueFactory(new PropertyValueFactory<Flight, String>("destinationCity"));
-			departingColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureDate"));
-			capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
-			remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
+			bookingIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("bookingNumber"));
+			dateCreatedColumn.setCellValueFactory(new PropertyValueFactory<Booking, String>("dateCreated"));
+			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("flightNumber"));
+			departingColumn.setCellValueFactory(new PropertyValueFactory<Booking, String>("departureDate"));
+			ticketIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("ticketNumber"));
+
 			
-			table.setItems(SQL.getBooking());
+			table.setItems(SQL.getBookings(LoginCustomerController.user.getUserName()));
 		
 	}
 }

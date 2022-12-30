@@ -22,7 +22,7 @@ public class SQL {
 	static ObservableList<Booking> booking;
 	private static final String Css = "jdbc:sqlserver://flightres.database.windows.net:1433;database=AriaAirways;user=CloudSAd2cc1c94@flightres;password=Victory17;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30";
 	
-	private SQL() {
+	public SQL() {
 		
 	}
 
@@ -372,7 +372,7 @@ public class SQL {
 		return booking;
 	}
 	
-	public static ObservableList<Booking> getBooking(String username) {
+	public static ObservableList<Booking> getBookings(String username) {
 
 		try {
 
