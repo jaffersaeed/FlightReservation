@@ -40,6 +40,10 @@ public class AdminLoginController {
     private Label error;
     
     static User user;
+    
+     ImageView myImageView;
+    
+    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign1.jpg"));
 
 
     public void goBack(ActionEvent event) throws IOException {
@@ -67,8 +71,7 @@ public class AdminLoginController {
 						
 						else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
-					Main m = new Main();
-					m.changeScene("AdminMainMenu.fxml");
+							error.setText("You do not have access to this page.");
 					
 			}else {
 				error.setText("Wrong Username or Password, please try again!");

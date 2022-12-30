@@ -65,16 +65,16 @@ public class LoginCustomerController{
 					}
 					
 					if (Check.isValidUser(username.getText(),password.getText()) 
-							&& (user instanceof Admin)) {
-						Main m = new Main();
-	        m.changeScene("AdminMainMenu.fxml");
-					}
-					else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
 					Main m = new Main();
 					m.changeScene("MainMenu.fxml");
+					}
+					else if (Check.isValidUser(username.getText(),password.getText()) 
+							&& (user instanceof Admin)) {
+						error.setText("Please continue to Admin login page.");
+					
 			}else {
-				error.setText("Wrong Usernae or Password, please try again!");
+				error.setText("Wrong Username or Password, please try again!");
 			}
 				
 			} catch (Exception e1) {
