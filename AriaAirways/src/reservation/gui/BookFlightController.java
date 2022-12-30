@@ -81,7 +81,7 @@ public class BookFlightController implements Initializable {
  			ObservableList<Flight> productSelected, allProducts;
  			allProducts = table.getItems();
  			productSelected = table.getSelectionModel().getSelectedItems();
- 			Flight flight=(Flight)table.getSelectionModel().getSelectedItem();
+ 			Flight flight= table.getSelectionModel().getSelectedItem();
  			
  			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
  				error.setText( "Reservation Already Exist");
