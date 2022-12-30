@@ -84,7 +84,7 @@ public class BookFlightController implements Initializable {
  			Flight flight=(Flight)table.getSelectionModel().getSelectedItem();
  			
  			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
- 				Alert.display("Manage Flight", "Reservation Already Exist");
+ 				error.setText()("Manage Flight", "Reservation Already Exist");
  			} else {
  				flightQuery = SQL.getPassengerCount(flight.getFlightNumber());
  				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
