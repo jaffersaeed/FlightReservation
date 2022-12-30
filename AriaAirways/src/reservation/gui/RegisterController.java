@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import reservation.data.SQL;
 import reservation.util.Menu;
 
 import java.io.IOException;
@@ -107,10 +108,10 @@ public class RegisterController implements Initializable {
 				 phoneNumberStr, ssnStr, (String) comb.getSelectionModel().getSelectedItem(),
 				securityanswer};
 		 		
-    	 		result = Menu.register(newUser);
-    	 		error.setText("Please enter all criteria.");
-    			Main m = new Main();
-    			m.changeScene("MainMenu.fxml");
+    	 		SQL sQL = new SQL();
+    	 		SQL.createUser(usernameStr, passwordStr, type, firstname, lastname, addressStr, cityStr, stateStr, zipcodeStr, phoneNumberStr, phoneNumberStr, ssnStr, securityanswer, securityanswer);
+    	 		error.setText("Registered!");
+    			
 		
     }
     } 
