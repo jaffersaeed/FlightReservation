@@ -84,11 +84,11 @@ public class BookFlightController implements Initializable {
  			Flight flight=(Flight)table.getSelectionModel().getSelectedItem();
  			
  			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
- 				error.setText()("Manage Flight", "Reservation Already Exist");
+ 				error.setText( "Reservation Already Exist");
  			} else {
  				flightQuery = SQL.getPassengerCount(flight.getFlightNumber());
  				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {
- 					error.setText("Manage Flight", "This Flight is Full!");
+ 					error.setText("This Flight is Full!");
  				}else {
  					Booking booking = new Booking(LoginCustomerController.user.getUserName(), flight.getFlightNumber(),
  							flight.getDepartureDate(), count++);
@@ -120,7 +120,7 @@ public class BookFlightController implements Initializable {
  			capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
  			remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
  
- 			//table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY'")),destination.getSelectionModel().getSelectedItem().toString()));
+ 	//		table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY'")),destination.getSelectionModel().getSelectedItem().toString()));
  		
  	}
  	
