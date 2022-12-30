@@ -91,24 +91,24 @@ public class RegisterController implements Initializable {
     	 String zipcodeStr = zipcode.getText();
     	 String phoneNumberStr = phoneNumber.getText();
     	 String ssnStr = ssn.getText();
-    	 String combStr = comb.getSelectionModel().getSelectedItem().toString();
+    //	 combStr = comb.getSelectionModel().getSelectedItem();
     	 String securityanswer = securityAnswer.getText();
     	
 		if (usernameStr.isEmpty() || passwordStr.isEmpty() || firstname.isEmpty() || lastname.isEmpty() ||
 				addressStr.isEmpty() || cityStr.isEmpty() ||
 				stateStr.isEmpty() || zipcodeStr.isEmpty() ||
-				 phoneNumberStr.isEmpty() || ssnStr.isEmpty() ||  combStr.isEmpty() ||
+				 phoneNumberStr.isEmpty() || ssnStr.isEmpty() ||
 				securityanswer.isEmpty()) {
 			error.setText("Please enter all criteria.");
 			
 		} else {
-			 String[] newUser = {username.getText(),password.getText(),type = "Customer",firstName.getText(),lastName.getText(),
-				address.getText(),city.getText(),
-				(String) state.getText(),zipcode.getText(),
-				 phoneNumber.getText(), ssn.getText(), (String) comb.getSelectionModel().getSelectedItem(),
-				securityAnswer.getText()};
+			 String[] newUser = {usernameStr, passwordStr,type = "Customer",firstname,lastname,
+				addressStr,cityStr,stateStr,zipcodeStr,
+				 phoneNumberStr, ssnStr, (String) comb.getSelectionModel().getSelectedItem(),
+				securityanswer};
 		 		
     	 		result = Menu.register(newUser);
+    	 		error.setText("Please enter all criteria.");
     			Main m = new Main();
     			m.changeScene("MainMenu.fxml");
 		
