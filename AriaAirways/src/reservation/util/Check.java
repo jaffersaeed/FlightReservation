@@ -78,19 +78,20 @@ public class Check {
 	}
 	
 	public static boolean bookingExists(String departureDate, String username) {
-		String[] result = null; 
+		String[] result = new String[6]; 
 		try {
-			result = SQL.getBooking(departureDate, username);
+			 result = SQL.getBooking(departureDate, username);
 		}
 		
 		catch (SQLException sql) {
+			System.out.println(sql.getMessage());
 			return true;
 		}
 		catch (Exception e) {
 			return true;
 		}
 		
-		if (result.equals(null) || result[0] == null) {
+		if ( result[4] != departureDate && result[2] != username) {
 			return false;
 		}
 		else

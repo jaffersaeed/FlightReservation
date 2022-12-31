@@ -2,6 +2,7 @@ package reservation.util;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import reservation.data.SQL;
 
@@ -30,31 +31,32 @@ public class Booking {
 		int lastCount = Check.getbookingCount();
 		bookingCount = ++lastCount;
 		this.flightNumber = bookingCount;
-		this.dateCreated = new Date().toString();
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+		this.dateCreated = sdf.format(date); 
+		
 		this.username = username;
 		this.flightNumber = flightNumber;
 		this.departureDate = departureDate;
-		this.flightNumber = flightNumber;
+		this.ticketNumber = ticketNumber;
 		this.result = createBooking();
 		Check.setbookingCount(bookingCount);
 	}
 	
-	public Booking(int bookingNumber, String dateCreated, String userName, int flightNumber, String
-				departureDate, int ticketNumber) {
+	public Booking(int bookingNumber, String dateCreated, String username, int flightNumber, String departureDate, int ticketNumber) {
 			this.bookingNumber = bookingNumber;
 			this.dateCreated = dateCreated;
-			this.username = userName;
+			this.username = username;
 			this.flightNumber = flightNumber;
 			this.departureDate = departureDate;
 			this.ticketNumber = ticketNumber;
 	}
-	
 
 	public String createBooking() {
 		String output = "";// a string to save the result of this update
 		try {// call database and save response in output
-			output = SQL.createBooking(this.flightNumber, this.dateCreated, this.username,
-					this.flightNumber, this.departureDate, this.flightNumber);
+			output = SQL.createBooking(this.bookingNumber, this.dateCreated, this.username,
+					this.flightNumber, this.departureDate, this.ticketNumber);
 		} catch (SQLException sql) {
 			output = sql.getMessage();// save any error message in output
 		} catch (Exception e) {

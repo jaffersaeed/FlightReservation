@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -78,13 +79,21 @@ public class BookFlightController implements Initializable {
      
      public void book(ActionEvent event) throws IOException {
     	 try {
- 			ObservableList<Flight> productSelected, allProducts;
+ 			/*ObservableList<Flight> productSelected, allProducts;
  			allProducts = table.getItems();
- 			productSelected = table.getSelectionModel().getSelectedItems();
- 			Flight flight= (Flight)table.getSelectionModel().getSelectedItem();
+ 			productSelected = table.getSelectionModel().getSelectedItems();*/
+ 			
+    		 /*MultipleSelectionModel<Flight> picks = table.getSelectionModel();
+    		 ObservableList<Flight> selectedItems = picks.getSelectedItems();
+ 
+    		 Flight flight = selectedItems;
+    				 new Flight(selectedItems.get(0),selectedItems.get(1),selectedItems.get(2),selectedItems.get(3),selectedItems.get(4),selectedItems.get(5));
+    				 
+    			*/	 
+    		 Flight flight= table.getSelectionModel().getSelectedItem();
  			
  			if (Check.bookingExists(flight.getDepartureDate(), LoginCustomerController.user.getUserName())) {
- 				error.setText( "Reservation Already Exist");
+ 				error.setText( "Booking Already Exist");
  			} else {
  				flightQuery = SQL.getPassengerCount(flight.getFlightNumber());
  				if (flightQuery.length != 0 && flightQuery[0] == flightQuery[1]) {

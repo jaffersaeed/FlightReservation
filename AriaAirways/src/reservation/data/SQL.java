@@ -378,7 +378,7 @@ public class SQL {
 
 			Connection connection = DriverManager.getConnection(Css);
 
-			String query = "Select * FROM Booking WHERE username=?";
+			String query = "Select bookingNumber,dateCreated,flightNumber,departureDate,ticketNumber FROM Booking WHERE username=?";
 
 			PreparedStatement statement = connection.prepareStatement(query);
 			
@@ -387,8 +387,7 @@ public class SQL {
 			ResultSet result = statement.executeQuery();
 			booking = FXCollections.observableArrayList();
 			while (result.next()) {
-				booking.addAll(new Booking(result.getInt(1), result.getString(2), result.getString(3),
-						result.getInt(4), result.getString(5), result.getInt(6)));
+				booking.addAll(new Booking(result.getInt(1), result.getString(2),result.getString(3),result.getInt(4), result.getString(5), result.getInt(6)));
 
 			}
 			return booking;
@@ -411,7 +410,7 @@ public class SQL {
 
 		c.connection = DriverManager.getConnection(Css);
 
-		String query = "Select * FROM Reservation WHERE departureDate =? and username=?";
+		String query = "Select * FROM dbo.Booking WHERE departureDate =? and username=?";
 
 		PreparedStatement statement = c.connection.prepareStatement(query);
 
@@ -441,7 +440,7 @@ public class SQL {
 
 			c.connection = DriverManager.getConnection(Css);
 
-			String query = "delete from Booking where bookingNumber = ?";
+			String query = "delete from dbo.Booking where bookingNumber = ?";
 			PreparedStatement statement = c.connection.prepareStatement(query);
 			statement.setInt(1, bookingNumber);
 
