@@ -68,15 +68,17 @@ public class ManageFlightController implements Initializable {
    @FXML
    public Button delete;
    @FXML
-   public TextField flightNumber;
+   public TextField flightNum;
+   @FXML
+   public TextField cap;
+   @FXML
+   public TextField pass;
 
 //   ObservableList<Flight> newFlightList;
 
    ImageView myImageView;
 
    Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
-
-
 
     public void goBack(ActionEvent event) throws IOException {
          Main m = new Main();
@@ -90,78 +92,79 @@ public class ManageFlightController implements Initializable {
 
 
     public void add(ActionEvent event) throws IOException {
-
+    	try {
          boolean dataValid = true;
-
-         String originStr = origin.getSelectionModel().getSelectedItem().toString();
-         String destinationStr = destination.getSelectionModel().getSelectedItem().toString();
-         String date = travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY");
-         String capacityStr = capacity.getText();
-         String passStr = pass.getText();
-         String flightN = flightNumber.getText();
-
-          if (dataValid == true)
+         
+         Flight flight = new Flight();
+         flight.setDepartureCity(origin.getSelectionModel().getSelectedItem().toString());
+         flight.setDestinationCity(destination.getSelectionModel().getSelectedItem().toString());
+         flight.setDepartureDate(travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY")));
+         flight.setCapacity(Integer.parseInt(cap.getText()));
+         flight.setPassengerCount(Integer.parseInt(pass.getText()));
+         flight.setFlightNumber(Integer.parseInt(flightNum.getText()));
+              
+              SQL.createFlight(flight.getFlightNumber(), flight.getDepartureCity(), 
+					flight.getDepartureDate(), flight.getDestinationCity(), flight.getCapacity(),
+					flight.getPassengerCount());
+                  
+                        table.getItems().add(flight);
+                        error.setText("Success! Flight has been added.");
+        	  } catch (Exception ex) {
+        		  boolean dataValid = true;
+        	  
+        		    if (dataValid == true)
          {
-                 if flightNumber.getSelectionModel().getSelectedItem().toString == 0
-                        (
-                                        error.setText("Error: Origin cannot be blank."))
+                 if (flightNum == null)
+                 {
+                                        error.setText("Error: Flight Number cannot be blank.");
                                         dataValid = false;
          }
 
          if (dataValid == true)
          {
-                 if origin.getSelectionModel().getSelectedItem().toString == 0
-                        (
-                                        error.setText("Error: Origin cannot be blank."))
+                 if (origin.getSelectionModel().getSelectedItem() == null)
+                 {
+                                        error.setText("Error: Origin cannot be blank.");
                                         dataValid = false;
          }
 
           if (dataValid == true)
          {
-                 if destination.getSelectionModel().getSelectedItem().toString() == 0)
-                        (
-                                        error.setText("Error: Destination cannot be blank."))
+                 if (destination.getSelectionModel().getSelectedItem() == null)
+                 {
+                                        error.setText("Error: Destination cannot be blank.");
                                         dataValid = false;
          }
-          if (dataValid == true)
+         }
+     /*     if (dataValid == true)
          {
-                 if departureTime.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY") == 0)
-                        (
+                 if (Traveldate == null)
+                 {
                                         error.setText("Error: Date cannot be blank."))
                                         dataValid = false;
          }
           if (dataValid == true)
          {
-                 if capacity.getText() == 0
-                        (
+                 if (cap == null)
+                 {
                                         error.setText("Error: Capacity cannot be blank."))
                                         dataValid = false;
          }
           if (dataValid == true)
          {
-                 if pass.getText() == 0
-                        (
+                 if (passInt == null)
+                 {
                                         error.setText("Error: Passenger Count cannot be blank."))
                                         dataValid = false;
+    */     }
+        		  
+        	  }
          }
-
-          if (dataValid == true)
-          { Flight flight = new Flight();
-                  flight = SQL.createFlight(flightNum,originStr, destinationStr
-                                  date, capactiyStr, passStr);
-
-                        table.getItems().add(flight);
-                        originStr.clear();
-                                destinationStr.clear();
-                                date.clear();
-                                passStr.clear();
-                                capacityStr.clear();
-                                flightNum.clear();
-
-                        error.setText("Success! Flight has been added.");
           }
+         
+         
 
-}
+
 
      public void delete(ActionEvent event) throws IOException {
           try {

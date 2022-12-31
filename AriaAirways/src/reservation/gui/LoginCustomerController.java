@@ -29,7 +29,7 @@ public class LoginCustomerController{
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Button back;
     @FXML
@@ -65,13 +65,14 @@ public class LoginCustomerController{
 					}
 					
 					if (Check.isValidUser(username.getText(),password.getText()) 
+							&& (user instanceof Admin)) {
+						error.setText("Please continue to Admin login page.");
+					
+					}
+					else if (Check.isValidUser(username.getText(),password.getText()) 
 						&& (user instanceof Customer)) {
 					Main m = new Main();
 					m.changeScene("MainMenu.fxml");
-					}
-					else if (Check.isValidUser(username.getText(),password.getText()) 
-							&& (user instanceof Admin)) {
-						error.setText("Please continue to Admin login page.");
 					
 			}else {
 				error.setText("Wrong Username or Password, please try again!");

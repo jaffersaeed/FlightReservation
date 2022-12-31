@@ -29,7 +29,7 @@ public class AdminLoginController {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Button back;
     @FXML
@@ -58,26 +58,27 @@ public class AdminLoginController {
     
  public void adminLogin(ActionEvent event) throws IOException {
     	
-    	try {
+				try {
 				if (Check.isValidUser(username.getText(), password.getText())) {
-					
 						user = Menu.login(username.getText(), password.getText());
 					}
 					
+					//Create a string to receive response from user's actions
+					String response = "";
+					
+					// check if user is an admin
 					if (Check.isValidUser(username.getText(),password.getText()) 
 							&& (user instanceof Admin)) {
 						Main m = new Main();
-						m.changeScene("AdminMainMenu.fxml"); }
-						
-						else if (Check.isValidUser(username.getText(),password.getText()) 
-						&& (user instanceof Customer)) {
-							Main m = new Main();
 						m.changeScene("AdminMainMenu.fxml");
-							//error.setText("You do not have access to this page.");
-					
+					}
+					else if (Check.isValidUser(username.getText(),password.getText()) 
+						&& (user instanceof Customer)) {
+					error.setText("Please go to Customer Login");
 			}else {
-				error.setText("Wrong Username or Password, please try again!");
+				error.setText("Invalid Username or Password");
 			}
+			
 				
 			} catch (Exception e1) {
 				e1.printStackTrace();
