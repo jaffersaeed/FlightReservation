@@ -66,7 +66,7 @@ public class AvailableFlightsController implements Initializable{
 	
 	public void add(ActionEvent event) throws IOException {
    	  Main m = new Main();
-	        m.changeScene("AdminMainMenu.fxml");
+	        m.changeScene("ManageFlight.fxml");
     }
 	
 	public void delete(ActionEvent event) throws IOException {
