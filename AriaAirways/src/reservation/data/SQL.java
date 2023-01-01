@@ -440,7 +440,7 @@ public class SQL {
 
 			c.connection = DriverManager.getConnection(Css);
 
-			String query = "delete from dbo.Booking where bookingNumber = ?";
+			String query = "delete from Booking where bookingNumber = ?";
 			PreparedStatement statement = c.connection.prepareStatement(query);
 			statement.setInt(1, bookingNumber);
 
@@ -449,6 +449,8 @@ public class SQL {
 			c.connection.close();
 
 		} catch (SQLException sql) {
+			System.out.println(sql.getMessage());
+			
 
 		} catch (Exception e) {
 
