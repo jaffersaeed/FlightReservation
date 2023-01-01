@@ -68,7 +68,7 @@ public class BookFlightController implements Initializable {
     
      public void goBack(ActionEvent event) throws IOException {
 					Main m = new Main();
-					m.changeScene("MainMenu.fxml");
+					m.changeScene("AdminMainMenu.fxml");
     }
      public void viewFlights(ActionEvent event) throws IOException {
    
