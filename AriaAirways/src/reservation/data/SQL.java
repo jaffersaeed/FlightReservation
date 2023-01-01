@@ -378,7 +378,7 @@ public class SQL {
 
 			Connection connection = DriverManager.getConnection(Css);
 
-			String query = "Select * FROM Booking WHERE username=?";
+			String query = "Select * FROM dbo.Booking WHERE username=?";
 
 			PreparedStatement statement = connection.prepareStatement(query);
 			

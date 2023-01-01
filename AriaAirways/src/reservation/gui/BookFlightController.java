@@ -15,8 +15,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import reservation.data.SQL;
 import reservation.util.Check;
+import reservation.util.Customer;
+import reservation.util.Admin;
 import reservation.util.Booking;
 import reservation.util.Flight;
+import reservation.util.Menu;
+import reservation.util.User;
 import reservation.gui.LoginCustomerController;
 
 import java.io.IOException;
@@ -68,8 +72,17 @@ public class BookFlightController implements Initializable {
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
     
      public void goBack(ActionEvent event) throws IOException {
-    	 Main m = new Main();
-	        m.changeScene("MainMenu.fxml");
+    	 	User user = LoginCustomerController.user.getUserName();
+			
+			if (user instanceof Admin) {
+				error.setText("Please continue to Admin login page.");
+				Main m = new Main();
+		        m.changeScene("AdminMainMenu.fxml");
+			}
+			else {
+			Main m = new Main();
+			m.changeScene("MainMenu.fxml");
+			}
     }
      public void viewFlights(ActionEvent event) throws IOException {
    
