@@ -16,13 +16,13 @@
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="568.0">
          <children>
-            <ImageView fx:id="myImage" fitHeight="396.0" fitWidth="662.0" layoutX="-19.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="myImage" fitHeight="396.0" fitWidth="662.0" layoutX="-14.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@GUIdesign3.jpg" />
                </image>
             </ImageView>
             <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-            <Text layoutX="240.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
+            <Text layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
@@ -36,25 +36,25 @@
             <Text layoutX="148.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
             <Text layoutX="169.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
             <TextField fx:id="zipcode" layoutX="220.0" layoutY="251.0" prefHeight="26.0" prefWidth="81.0" />
-            <Text layoutX="450.0" layoutY="300" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" /> 
+            <Text layoutX="165.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" /> 
             <Text layoutX="311.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
             <Text layoutX="149.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zipcode" />
-            <TextField fx:id="username" layoutX="222.0" layoutY="324.0" />
+            <TextField fx:id="username" layoutX="222.0" layoutY="354.0" />
             <Text fx:id="email" layoutX="150.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <Button fx:id="registerNext" layoutX="276.0" layoutY="491.0" mnemonicParsing="false" onAction="#next" text="Next" />
-            <Text layoutX="143.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-            <TextField fx:id="securityAnswer" layoutX="220.0" layoutY="440.0" />
-            <PasswordField fx:id="password" layoutX="221.0" layoutY="362.0" />
-            <Text layoutX="146.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-            <Text layoutX="106.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Question" />
-            <Text layoutX="107.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Answer" />
-            <ComboBox fx:id="comb" layoutX="221.0" layoutY="404.0" onAction="#Select" prefWidth="150.0" />
-            <TextField fx:id="ssn" layoutX="345.0" layoutY="251.0" prefHeight="25.0" prefWidth="60.0" />
-            <Text layoutX="311.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN" />
+            <Text layoutX="143.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+            <TextField fx:id="securityAnswer" layoutX="220.0" layoutY="449.0" />
+            <PasswordField fx:id="password" layoutX="221.0" layoutY="384.0" />
+            <Text layoutX="145.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <Text layoutX="106.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Question" />
+            <Text layoutX="107.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Answer" />
+            <ComboBox fx:id="comb" layoutX="222.0" layoutY="418.0" onAction="#Select" prefWidth="150.0" />
+            <TextField fx:id="ssn" layoutX="220.0" layoutY="285.0" prefHeight="25.0" prefWidth="151.0" />
+            <Text layoutX="168.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN" />
             <TextField id="firstName" fx:id="lastName" layoutX="218.0" layoutY="101.0" />
             <Text layoutX="110.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
-            <TextField fx:id="email" layoutX="222.0" layoutY="286.0" />
-            <TextField fx:id="state" layoutX="341.0" layoutY="215.0" prefHeight="25.0" prefWidth="51.0" />
+            <TextField fx:id="email" layoutX="221.0" layoutY="318.0" />
+            <TextField fx:id="state" layoutX="343.0" layoutY="215.0" prefHeight="25.0" prefWidth="63.0" />
             <Label fx:id="error" layoutX="193.0" layoutY="39.0" prefHeight="17.0" prefWidth="207.0" textFill="#eb0303" />
          </children>
       </AnchorPane>
