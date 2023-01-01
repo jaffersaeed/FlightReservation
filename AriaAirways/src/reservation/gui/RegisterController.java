@@ -2,7 +2,7 @@ package  reservation.gui;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
+
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,11 +16,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import reservation.data.SQL;
-import reservation.util.Menu;
+
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class RegisterController implements Initializable {
 	

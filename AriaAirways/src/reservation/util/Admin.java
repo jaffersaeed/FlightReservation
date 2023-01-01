@@ -12,8 +12,5 @@ public class Admin extends User {
 				phoneNumber,  ssn,  securityQ,  securityA);
 	}
 
-	//@Override
-	//public void makeNewBooking(int flightNumber, String departureDate, int ticketNumber) {
-		// TODO Auto-generated method stub
 		
 	}

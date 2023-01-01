@@ -3,7 +3,7 @@ package  reservation.gui;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -16,7 +16,7 @@ import reservation.data.SQL;
 import reservation.util.Check;
 import reservation.util.Booking;
 import reservation.util.Flight;
-import reservation.gui.LoginCustomerController;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -124,7 +124,7 @@ public class BookFlightController implements Initializable {
  			
  			
  
- 	//		table.setItems(SQL.getFlightDetails(origin.getSelectionModel().getSelectedItem().toString(),travelDate.getValue().format(DateTimeFormatter.ofPattern("MM-DD-YYYY'")),destination.getSelectionModel().getSelectedItem().toString()));
+ 	
  		
  	}
  	

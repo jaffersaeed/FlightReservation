@@ -53,14 +53,14 @@ public class Booking {
 	}
 
 	public String createBooking() {
-		String output = "";// a string to save the result of this update
-		try {// call database and save response in output
+		String output = "";
+		try {
 			output = SQL.createBooking(this.bookingNumber, this.dateCreated, this.username,
 					this.flightNumber, this.departureDate, this.ticketNumber);
 		} catch (SQLException sql) {
-			output = sql.getMessage();// save any error message in output
+			output = sql.getMessage();
 		} catch (Exception e) {
-			output = e.getMessage();// save any error message in output
+			output = e.getMessage();
 		}
 
 		return output;

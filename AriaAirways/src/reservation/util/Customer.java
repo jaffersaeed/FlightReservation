@@ -13,9 +13,7 @@ public class Customer extends User {
 				address, city,  state,  zipCode,  email,
 				phoneNumber,  ssn,  securityQ,  securityA);
 	}
-	//	@Override
-	//	public void makeNewReservation(int flightNumber, String departureDate, int ticketNumber) {
-			// TODO Auto-generated method stub
+
 			
 		}
 

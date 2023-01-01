@@ -1,9 +1,7 @@
 package reservation.util;
 
 
-import reservation.util.Menu;
-import reservation.util.Booking;
-import javafx.util.*;
+
 
 
 public abstract class User implements Menu {
@@ -25,12 +23,12 @@ public abstract class User implements Menu {
 	private String type;
 	public Booking booking;
 	
-	//no-argument constructor creates a default user
+
 	public User() {
 		
 	}
 	
-	//this constructor creates a User object with user input
+
 	public User(String username, String password, String userType, String firstName,
 			String lastName, String address, String city, String state, String zipCode, String email,
 			String phoneNumber, String ssn, String securityQ, String securityA) {
@@ -50,67 +48,66 @@ public abstract class User implements Menu {
 		setSecurityA(securityA);
 	}
 
-	//returns first name
+
 	public String getFirstName() {
 		return firstName;
 	}
 	
-	//sets first name
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	//returns last name
+
 	public String getLastName() {
 		return lastName;
 	}
 
-	//sets last name
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	//returns address
+
 	public String getAddress() {
 		return address;
 	}
 
-	//sets address
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	//returns ZIP code
+
 	public String getZipCode() {
 		return zipCode;
 	}
 
-	//sets ZIP code
+
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 
-	//returns city
+
 	public String getCity() {
 		return city;
 	}
 
-	// sets this user's city
+
 	public void setCity(String city) {
 		this.city = city;
 	}
 
-	// returns this user's city
+
 	public String getState() {
 		return state;
 	}
 
-	// sets this user's state
+
 	public void setState(String state) {
 		this.state = state;
 	}
 
-	// returns this user's state
+
 	public String getEmail() {
 		return email;
 	}
@@ -139,47 +136,45 @@ public abstract class User implements Menu {
 		this.password = password;
 	}
 
-	//returns this user's password
+
 	public String getPassword() {
 		return password.toString();
 	}
 	
-	// returns user type
+
 	public String getType() {
 		return type;
 	}
 
-	// sets user type
+
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	//sets this user's password security question
+	
 	public void setSecurityQ(String securityQ) {
 		this.securityQ = securityQ;
 	}
 	
-	//sets this user's password security answer
 	public void setSecurityA(String answer) {
 		this.securityA = answer;
 	}
-	
-	// returns this user password security question
+
 	public String getSecurityQ() {
 		return this.securityQ;
 	}
 	
-	// returns this user password security answer
+
 	public String getSecurityA() {
 		return this.securityA;
 	}
 	
-	//sets this user's password security question
+
 	public void setPhoneNumber(String securityQ) {
 		this.securityQ = securityQ;
 	}
 	
-	// returns this user password security question
+
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}

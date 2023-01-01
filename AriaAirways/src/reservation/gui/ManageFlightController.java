@@ -3,7 +3,6 @@ package  reservation.gui;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -14,10 +13,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import reservation.data.SQL;
-import reservation.util.Check;
-import reservation.util.Booking;
+
 import reservation.util.Flight;
-import reservation.gui.LoginCustomerController;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -169,7 +167,6 @@ public class ManageFlightController implements Initializable {
                 ObservableList<String> list1 = FXCollections.observableArrayList("Atlanta","Boston","Chicago","Dallas-Fort Worth","Denver","Houston","Las Vegas","Los Angeles","Miami","New York","Pheonix","San Francisco","Seattle","Washington D.C");
                 destination.setItems(list1);
 
-        //      flightList = new ObservableListt<Flight>();
 
                         flightIdColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("flightNumber"));
                         originCityColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("departureCity"));
@@ -178,7 +175,6 @@ public class ManageFlightController implements Initializable {
                         capacityColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("capacity"));
                         remainingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("passengerCount"));
 
-        //              table.setItems(SQL.createFlight());
 
         }
 
