@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.gui.BookFlightController">
+   <children>
+      <ImageView fitHeight="411.0" fitWidth="731.0" layoutX="-57.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GUIdesign5.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Text layoutX="258.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Flight">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="view" layoutX="259.0" layoutY="187.0" mnemonicParsing="false" onAction="#viewFlights" text="View Flights" />
+      <Label layoutX="130.0" layoutY="100.0" text="Origin" />
+      <Label layoutX="308.0" layoutY="100.0" text="Destination" />
+      <Label layoutX="205.0" layoutY="140.0" text="Travel Date" />
+      <DatePicker fx:id="travelDate" layoutX="288.0" layoutY="136.0" prefHeight="26.0" prefWidth="108.0" />
+      <ComboBox fx:id="origin" layoutX="182.0" layoutY="95.0" prefHeight="26.0" prefWidth="108.0" />
+      <ComboBox fx:id="destination" layoutX="385.0" layoutY="95.0" prefHeight="26.0" prefWidth="108.0" />
+      <TableView fx:id="table" layoutX="80.0" layoutY="234.0" prefHeight="110.0" prefWidth="457.0">
+        <columns>
+          <TableColumn fx:id="flightIdColumn" prefWidth="75.0" text="Flight ID" />
+          <TableColumn fx:id="originCityColumn" prefWidth="79.0" text="Origin" />
+            <TableColumn fx:id="departingCity" prefWidth="95.0" text="Destination" />
+            <TableColumn fx:id="departingColumn" prefWidth="67.0" text="Date" />
+            <TableColumn fx:id="capacityColumn" prefWidth="67.0" text="Capacity" />
+            <TableColumn fx:id="remainingColumn" prefWidth="74.0" text="Remaining" />
+        </columns>
+      </TableView>
+      <Button fx:id="book" layoutX="278.0" layoutY="360.0" mnemonicParsing="false" onAction="#book" text="Book" />
+      <Label fx:id="error" layoutX="256.0" layoutY="61.0" prefHeight="17.0" prefWidth="99.0" textFill="#fd0606" />
+   </children>
+</AnchorPane>

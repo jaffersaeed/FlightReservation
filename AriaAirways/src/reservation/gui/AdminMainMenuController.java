@@ -36,7 +36,7 @@ public class AdminMainMenuController {
     }
     public void bookFlight(ActionEvent event) throws IOException {
     	 Main m = new Main();
-	        m.changeScene("BookFlights.fxml");
+	        m.changeScene("AdminBookFlights.fxml");
     }
 
 }

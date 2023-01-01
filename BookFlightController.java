@@ -67,6 +67,21 @@ public class BookFlightController implements Initializable {
     Image myImage = new Image(getClass().getResourceAsStream("GUIdesign5.jpg"));
     
      public void goBack(ActionEvent event) throws IOException {
+    	 try {
+				/*if 
+				(Check.isValidUser(username.getText(), password.getText())) {
+					
+						user = Menu.login(username.getText(), password.getText());
+					}
+					*/
+					if (Check.isValidUser(username.getText(),password.getText()) 
+							&& (user instanceof Admin)) {
+						Main m = new Main();
+						m.changeScene("AdminMainMenu.fxml");
+					
+					}
+					else (Check.isValidUser(username.getText(),password.getText()) 
+						&& (user instanceof Customer)) {
 					Main m = new Main();
 					m.changeScene("MainMenu.fxml");
     }
