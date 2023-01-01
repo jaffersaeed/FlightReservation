@@ -22,8 +22,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Text>
-      <Button fx:id="add" layoutX="259.0" layoutY="342.0" mnemonicParsing="false" onAction="#add" text="Add " />
-      <Button fx:id="delete" layoutX="319.0" layoutY="342.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="delete" layoutX="257.0" layoutY="342.0" mnemonicParsing="false" onAction="#delete" text="Manage Flights" />
       <TableView fx:id="table" layoutX="76.0" layoutY="109.0" prefHeight="199.0" prefWidth="463.0">
         <columns>
           <TableColumn fx:id="flightIdColumn" prefWidth="62.0" text="Flight ID" />

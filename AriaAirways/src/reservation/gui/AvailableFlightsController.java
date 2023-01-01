@@ -43,8 +43,7 @@ public class AvailableFlightsController implements Initializable{
 	@FXML
 	private TableColumn<Flight, Integer> remainingColumn;
 	
-	@FXML
-	private Button add;
+
 	@FXML
 	private Button delete;
 	@FXML
@@ -63,15 +62,11 @@ public class AvailableFlightsController implements Initializable{
     	 Main m = new Main();
 	        m.changeScene("AdminMainMenu.fxml");
     }
-	
-	public void add(ActionEvent event) throws IOException {
-   	  Main m = new Main();
-	        m.changeScene("ManageFlight.fxml");
-    }
+
 	
 	public void delete(ActionEvent event) throws IOException {
    	  Main m = new Main();
-	        m.changeScene("AdminMainMenu.fxml");
+	        m.changeScene("ManageFlight.fxml");
     }
 
 /*	public ObservableList<Flight> getFlights(){

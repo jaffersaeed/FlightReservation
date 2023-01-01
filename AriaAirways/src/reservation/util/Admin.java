@@ -13,7 +13,7 @@ public class Admin extends User {
 	}
 
 	//@Override
-	//public void makeNewReservation(int flightNumber, String departureDate, int ticketNumber) {
+	//public void makeNewBooking(int flightNumber, String departureDate, int ticketNumber) {
 		// TODO Auto-generated method stub
 		
 	}

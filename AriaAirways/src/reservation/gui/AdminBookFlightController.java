@@ -27,7 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
-public class BookFlightController implements Initializable {
+public class AdminBookFlightController implements Initializable {
 	
 	int[] flightQuery;
 	static int count = 1;

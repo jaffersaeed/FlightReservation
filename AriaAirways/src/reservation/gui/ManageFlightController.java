@@ -136,27 +136,7 @@ public class ManageFlightController implements Initializable {
                                         dataValid = false;
          }
          }
-     /*     if (dataValid == true)
-         {
-                 if (Traveldate == null)
-                 {
-                                        error.setText("Error: Date cannot be blank."))
-                                        dataValid = false;
          }
-          if (dataValid == true)
-         {
-                 if (cap == null)
-                 {
-                                        error.setText("Error: Capacity cannot be blank."))
-                                        dataValid = false;
-         }
-          if (dataValid == true)
-         {
-                 if (passInt == null)
-                 {
-                                        error.setText("Error: Passenger Count cannot be blank."))
-                                        dataValid = false;
-    */     }
         		  
         	  }
          }
@@ -174,6 +154,8 @@ public class ManageFlightController implements Initializable {
                         Flight flight =(Flight) table.getSelectionModel().getSelectedItem();
                         SQL.deleteFlight(flight.getFlightNumber());
                         productSelected.forEach(allProducts::remove);
+                        Main m = new Main();
+                        m.changeScene("ManageFlight.fxml");
 
                 } catch (NoSuchElementException ex) {
                         error.setText("There are no trips");

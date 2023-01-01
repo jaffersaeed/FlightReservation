@@ -23,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import reservation.data.SQL;
 import reservation.util.Booking;
 import reservation.util.Check;
+import reservation.util.Flight;
 import reservation.gui.LoginCustomerController;
 
 public class myFlightsController implements Initializable{
@@ -38,8 +39,7 @@ public class myFlightsController implements Initializable{
 	private TableColumn<Booking, Integer> flightIdColumn;
 	@FXML
 	private TableColumn<Booking, String> departingColumn; 
-	@FXML
-	private TableColumn<Booking, Integer> ticketIdColumn;
+
 	
 	@FXML
 	private Button add;
@@ -68,22 +68,25 @@ public class myFlightsController implements Initializable{
     }
 	
 	public void delete(ActionEvent event) throws IOException {
-   	  Main m = new Main();
-	        m.changeScene("AdminMainMenu.fxml");
-    }
+		
+             ObservableList<Booking> productSelected, allProducts;
+             allProducts = table.getItems();
+             productSelected = table.getSelectionModel().getSelectedItems();
+             Booking booking =(Booking) table.getSelectionModel().getSelectedItem();
+             SQL.deleteBooking(booking.getBookingNumber());
+             productSelected.forEach(allProducts::remove);
+ 
+             Main m = new Main();
+ 	        m.changeScene("myFlights.fxml");
 
-/*	public ObservableList<Flight> getFlights(){
-		ObservableList<Flight> flight= SQL.getFlight();
-		return flight;
-	}*/
-
+	}
+   	  
 
 	public void initialize(URL url, ResourceBundle rb ) {
 			bookingIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("bookingNumber"));
 			dateCreatedColumn.setCellValueFactory(new PropertyValueFactory<Booking, String>("dateCreated"));
 			flightIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("flightNumber"));
 			departingColumn.setCellValueFactory(new PropertyValueFactory<Booking, String>("departureDate"));
-			ticketIdColumn.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("ticketNumber"));
 
 			
 			table.setItems(SQL.getBookings(LoginCustomerController.user.getUserName()));

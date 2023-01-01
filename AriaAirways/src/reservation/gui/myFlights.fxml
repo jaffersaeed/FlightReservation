@@ -22,15 +22,14 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Text>
-      <Button fx:id="add" layoutX="225.0" layoutY="342.0" mnemonicParsing="false" onAction="#add" text="Book New Flight" />
-      <Button fx:id="delete" layoutX="319.0" layoutY="342.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="add" layoutX="191.0" layoutY="342.0" mnemonicParsing="false" onAction="#add" text="Add New Booking" />
+      <Button fx:id="delete" layoutX="331.0" layoutY="342.0" mnemonicParsing="false" onAction="#delete" text="Delete My Booking" />
       <TableView fx:id="table" layoutX="76.0" layoutY="109.0" prefHeight="199.0" prefWidth="463.0">
         <columns>
-          <TableColumn fx:id="bookingIdColumn" prefWidth="80" text="Booking #" />
-          <TableColumn fx:id="dateCreatedColumn" prefWidth="90.0" text="Booking Date " />
-            <TableColumn fx:id="flightIdColumn" prefWidth="105.99996948242188" text="Flight #" />
-            <TableColumn fx:id="departingColumn" prefWidth="80.6666259765625" text="Flight Date" />
-            <TableColumn fx:id="ticketIdColumn" prefWidth="105" text="Ticket#" />
+          <TableColumn fx:id="bookingIdColumn" prefWidth="119.0" text="Booking #" />
+          <TableColumn fx:id="dateCreatedColumn" prefWidth="120.0" text="Booking Date " />
+            <TableColumn fx:id="flightIdColumn" prefWidth="120.0" text="Flight #" />
+            <TableColumn fx:id="departingColumn" prefWidth="103.0" text="Flight Date" />
         </columns>
       </TableView>
    </children>

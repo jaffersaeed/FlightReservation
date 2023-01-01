@@ -49,11 +49,11 @@
             <Text layoutX="106.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Question" />
             <Text layoutX="107.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Answer" />
             <ComboBox fx:id="comb" layoutX="222.0" layoutY="418.0" onAction="#Select" prefWidth="150.0" />
-            <TextField fx:id="ssn" layoutX="220.0" layoutY="285.0" prefHeight="25.0" prefWidth="151.0" />
+            <TextField fx:id="email" layoutX="220.0" layoutY="285.0" prefHeight="25.0" prefWidth="151.0" />
             <Text layoutX="168.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SSN" />
             <TextField id="firstName" fx:id="lastName" layoutX="218.0" layoutY="101.0" />
             <Text layoutX="110.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
-            <TextField fx:id="email" layoutX="221.0" layoutY="318.0" />
+            <TextField fx:id="ssn" layoutX="221.0" layoutY="318.0" />
             <TextField fx:id="state" layoutX="343.0" layoutY="215.0" prefHeight="25.0" prefWidth="63.0" />
             <Label fx:id="error" layoutX="193.0" layoutY="39.0" prefHeight="17.0" prefWidth="207.0" textFill="#eb0303" />
          </children>
