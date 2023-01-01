@@ -34,11 +34,11 @@ public class Booking {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 		this.dateCreated = sdf.format(date); 
-		
+		this.bookingNumber=flightNumber;
 		this.username = username;
 		this.flightNumber = flightNumber;
 		this.departureDate = departureDate;
-		this.ticketNumber = ticketNumber;
+		this.ticketNumber = flightNumber;
 		this.result = createBooking();
 		Check.setbookingCount(bookingCount);
 	}

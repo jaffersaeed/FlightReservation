@@ -62,10 +62,7 @@ public class AdminLoginController {
 				if (Check.isValidUser(username.getText(), password.getText())) {
 						user = Menu.login(username.getText(), password.getText());
 					}
-					
-					//Create a string to receive response from user's actions
-					String response = "";
-					
+				
 					// check if user is an admin
 					if (Check.isValidUser(username.getText(),password.getText()) 
 							&& (user instanceof Admin)) {

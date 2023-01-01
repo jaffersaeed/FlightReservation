@@ -326,7 +326,7 @@ public class SQL {
 
 		c.connection = DriverManager.getConnection(Css);
 
-		String query = "insert into Booking values (?,?,?,?,?,?)";
+		String query = "Insert into dbo.Booking values (?,?,?,?,?,?)";
 		PreparedStatement statement = c.connection.prepareStatement(query);
 		statement.setInt(1, bookingNumber);
 		statement.setString(2, dateCreated);
@@ -373,19 +373,19 @@ public class SQL {
 	}
 	
 	public static ObservableList<Booking> getBookings(String username) {
-
+		booking = FXCollections.observableArrayList();
 		try {
 
 			Connection connection = DriverManager.getConnection(Css);
 
-			String query = "Select bookingNumber,dateCreated,flightNumber,departureDate,ticketNumber FROM Booking WHERE username=?";
+			String query = "Select * FROM Booking WHERE username=?";
 
 			PreparedStatement statement = connection.prepareStatement(query);
 			
 			statement.setString(1, username);
 
 			ResultSet result = statement.executeQuery();
-			booking = FXCollections.observableArrayList();
+			
 			while (result.next()) {
 				booking.addAll(new Booking(result.getInt(1), result.getString(2),result.getString(3),result.getInt(4), result.getString(5), result.getInt(6)));
 
